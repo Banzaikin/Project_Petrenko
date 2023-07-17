@@ -14,13 +14,12 @@
 using namespace OpenXLSX;
 using namespace std;
 
-
 size_t write_data(void* ptr, size_t size, size_t nmemb, std::string* data) {
 	data->append((char*)ptr, size * nmemb);
 	return size * nmemb;
 }
 
-// получение html по ссылке
+// РїРѕР»СѓС‡РµРЅРёРµ html РїРѕ СЃСЃС‹Р»РєРµ
 std::string get_data_from_site(std::string url) {
 	CURL* curl;
 	CURLcode response;
@@ -41,8 +40,8 @@ std::string get_data_from_site(std::string url) {
 		curl_easy_cleanup(curl);
 	}
 
-	std::ofstream out;          // поток для записи
-	out.open("hello.txt");      // открываем файл для записи
+	std::ofstream out;          // РїРѕС‚РѕРє РґР»СЏ Р·Р°РїРёСЃРё
+	out.open("hello.txt");      // РѕС‚РєСЂС‹РІР°РµРј С„Р°Р№Р» РґР»СЏ Р·Р°РїРёСЃРё
 	out << url;
 	out << data;
 	out.close();
@@ -50,7 +49,7 @@ std::string get_data_from_site(std::string url) {
 	return data;
 };
 
-//получение количества монет в файле
+//РїРѕР»СѓС‡РµРЅРёРµ РєРѕР»РёС‡РµСЃС‚РІР° РјРѕРЅРµС‚ РІ С„Р°Р№Р»Рµ
 int count_money()
 {
 	XLDocument doc;
@@ -61,7 +60,7 @@ int count_money()
 	return B1;
 }
 
-//получение информации о монете по порядковому номеру
+//РїРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РјРѕРЅРµС‚Рµ РїРѕ РїРѕСЂСЏРґРєРѕРІРѕРјСѓ РЅРѕРјРµСЂСѓ
 string* get_money(int number)
 {
 	string num = to_string(number+2);
@@ -88,8 +87,8 @@ string* get_money(int number)
 	return res;
 }
 
-//запись даннных о монете
-void post_money(int price, float weight, float diametr, int number)
+//Р·Р°РїРёСЃСЊ РґР°РЅРЅРЅС‹С… Рѕ РјРѕРЅРµС‚Рµ
+void post_money(int price, float weight, int edition, float diametr, int number)
 {
 	string num = to_string(number + 2);
 	XLDocument doc;
@@ -98,12 +97,13 @@ void post_money(int price, float weight, float diametr, int number)
 	wks.cell("R" + num).value() = price;
 	wks.cell("J" + num).value() = weight;
 	wks.cell("L" + num).value() = diametr;
+	wks.cell("K" + num).value() = edition;
 	doc.save();
-	cout << num << ":   " << "Average cost: " << price << "   Weight: " << weight << "   Diameter: " << diametr << endl;
+	cout << num << ":   " << "Average cost: " << price << "   Weight: " << weight << "   Edition: " << edition << "   Diameter: " << diametr << endl;
 	doc.close();
 }
 
-//получение адреса страницы монеты из страницы поиска
+//РїРѕР»СѓС‡РµРЅРёРµ Р°РґСЂРµСЃР° СЃС‚СЂР°РЅРёС†С‹ РјРѕРЅРµС‚С‹ РёР· СЃС‚СЂР°РЅРёС†С‹ РїРѕРёСЃРєР°
 string parse_url_money(string html)
 {
 	int StUrl, EnUrl;
@@ -114,29 +114,30 @@ string parse_url_money(string html)
 	return NewUrl;
 }
 
-//извлечение чисел в вектор из строки
-vector<int> num_from_string(string str)
+template <typename T>
+//РёР·РІР»РµС‡РµРЅРёРµ С‡РёСЃРµР» РІ РІРµРєС‚РѕСЂ РёР· СЃС‚СЂРѕРєРё
+vector<T> num_from_string(string str, T x)
 {
-	vector <int> ivector;
+	vector <T> Tvector;
 	char temp[1024];
 	strcpy(temp, str.c_str());
-	for (auto i = strtok(temp, " \f\n\r\t\v"); i != nullptr; i = strtok(nullptr, " \f\n\r\t\v")) {
+	for (auto i = strtok(temp, " \f\n\r\t\v<>"); i != nullptr; i = strtok(nullptr, " \f\n\r\t\v<>")) {
 		char* it;
 		double num = strtod(i, &it);
 
 		if (*it == '\0') {
-			ivector.push_back(num);
+			Tvector.push_back(num);
 		}
 	}
-	return ivector;
+	return Tvector;
 }
 
-//получение средней цены по коду страницы и сохранности
+//РїРѕР»СѓС‡РµРЅРёРµ СЃСЂРµРґРЅРµР№ С†РµРЅС‹ РїРѕ РєРѕРґСѓ СЃС‚СЂР°РЅРёС†С‹ Рё СЃРѕС…СЂР°РЅРЅРѕСЃС‚Рё
 int get_middle_price(string html, string condition_str) {
-	std::ofstream out;          
+	std::ofstream out;
 	out.open("hello2.txt");
 
-	int middlePrice, StPrices, numbCond;
+	int StPrices, numbCond;
 	string condidion_mas[] = { "G","VG","F","VF","XF","AU","UNC" };
 	for (int i = 0; i < 7; i++)
 		if (condidion_mas[i] == condition_str) {
@@ -144,7 +145,7 @@ int get_middle_price(string html, string condition_str) {
 			break;
 		}
 	StPrices = html.find("avg-prices");
-	string Prices = html.substr(StPrices+106, 94);
+	string Prices = html.substr(StPrices + 106, 94);
 
 	while (Prices.find("-") != std::string::npos) {
 		Prices.replace(Prices.find("-"), 1, "0");
@@ -152,82 +153,42 @@ int get_middle_price(string html, string condition_str) {
 	while (Prices.find(" ") != std::string::npos) {
 		Prices.erase(Prices.find(" "), 1);
 	}
-	vector<int> condition_vec = num_from_string(Prices);
+	vector<int> condition_vec = num_from_string(Prices, numbCond);
 	out.close();
 	return condition_vec[numbCond];
 }
 
-//получение веса монеты
-float get_weight_money(string html)
+//РїРѕР»СѓС‡РµРЅРёРµ РІРµСЃР° Рё РґРёР°РјРµС‚СЂР° РјРѕРЅРµС‚С‹
+vector<double> get_weight_diameter_money(string html)
 {
-	std::ofstream out;
-	out.open("hello2.txt");
-
 	int weightMoneyStr = html.find("col-sm-4 descfullcont");
-	string weight = html.substr(weightMoneyStr+230, 50);
-	char tab2[50], tabWeight[4];
-	strcpy(tab2, weight.c_str());
-	for (int i = 0; i < 50; i++)
-	{
-		if (isdigit(tab2[i]))
-		{
-			tabWeight[0] = tab2[i];
-			i++;
-			if ((tab2[i]) == '.' || (tab2[i]) == ',')
-			{
-				for (int j = 1; j < 4; j++)
-				{
-					if (isdigit(tab2[i]) || tab2[i] == '.' || tab2[i] == ',')
-					{
-						if (tab2[i] == ',')
-							tab2[i] = '.';
-						tabWeight[j] = tab2[i];
-					}
-					else
-						tabWeight[j] = '0';
-					i++;
-				}
-			}
-		}
+	string weight = html.substr(weightMoneyStr + 230, 100);
+
+	while (weight.find(",") != std::string::npos) {
+		weight.replace(weight.find(","), 1, ".");
 	}
-	auto weightMoney = atof(tabWeight);
-	out.close();
-	return weightMoney;
+
+	double d;
+	vector<double> vec = num_from_string(weight, d);
+	return vec;
 }
 
-//получение диаметра монеты
-float get_diametr_money(string html)
-{
-	std::ofstream out;
-	out.open("hello2.txt");
+//РїРѕР»СѓС‡РµРЅРёРµ С‚РёСЂР°Р¶Р° РјРѕРЅРµС‚С‹
+int get_edition_money(string html) {
 
-	float diametrMoney;
-	int diametrMoneyStr = html.find("col-sm-4 descfullcont");
-	string diametr = html.substr(diametrMoneyStr + 270, 50);
-	char tab2[50], tabDiametr[4];
-	strcpy(tab2, diametr.c_str());
-	for (int i = 0; i < 50; i++)
-	{
-		if (isdigit(tab2[i]))
-		{
-			tabDiametr[0] = tab2[i];
-			i++;
-			tabDiametr[1] = tab2[i];
-			i++;	
-			if (tab2[i] == '.' || tab2[i] == ',')
-			{
-				if (tab2[i] == ',')
-					tab2[i] = '.';
-				tabDiametr[2] = tab2[i];
-				i++;
-				tabDiametr[3] = tab2[i];
-				i++;
-			}
-		}
+	int editionMoneyStr = html.find("col-sm-4 descfullcont");
+	string edition = html.substr(editionMoneyStr - 80, 35);
+
+	while (edition.find(" ") != std::string::npos) {
+		edition.erase(edition.find(" "), 1);
 	}
-	diametrMoney = atof(tabDiametr);
-	out.close();
-	return diametrMoney;
+
+	int d = 1;
+	vector<int> vec = num_from_string(edition, d);
+	if (vec.empty())
+		return 0;
+	else
+		return vec[0];
 }
 
 int main() {
@@ -246,10 +207,10 @@ int main() {
 		html = get_data_from_site("https://www.raritetus.ru" + url);
 		if (html == "")
 			break;
-		int price =  get_middle_price(html, condition); 
-		float weight = get_weight_money(html);
-		float diametr = get_diametr_money(html);
-		post_money(price, weight, diametr, i);
+		int price = get_middle_price(html, condition);
+		vector<double> weightAndDiameter = get_weight_diameter_money(html);
+		int edition = get_edition_money(html);
+		post_money(price, weightAndDiameter[0], edition, weightAndDiameter[1], i);
 	}
 	return 0;
 }

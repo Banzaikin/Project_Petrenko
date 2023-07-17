@@ -9,7 +9,7 @@ https://www.raritetus.ru/stoimost-monet/inostrannye/aziya/yaponiya/1-jena-yen-19
 <title>Цена монеты 1 йена (yen) 1949 года Япония: стоимость по аукционам с описанием и фото.</title>
 <script>
         var RARITETUS_GLOBAL = {
-            abSegmentName: 'main',
+            abSegmentName: 'alternative',
 
                         isAbSegmentMain: function () {
                 return RARITETUS_GLOBAL.abSegmentName == 'main';
@@ -41,7 +41,7 @@ https://www.raritetus.ru/stoimost-monet/inostrannye/aziya/yaponiya/1-jena-yen-19
                 }
             });
         </script>
-<link href="//raritetus.cdnvideo.ru/css/compiled/coin_view_min.css?441e42e8e97dcac1" rel="stylesheet">
+<link href="//raritetus.cdnvideo.ru/css/compiled/coin_view_min.css?556782fcd04b19f2" rel="stylesheet">
 <script>
     var mainJsLoadedHandlers = [];
     var bMainJsLoaded = false;
@@ -269,16 +269,16 @@ https://www.raritetus.ru/stoimost-monet/inostrannye/aziya/yaponiya/1-jena-yen-19
 </div>
 <div class="hidden-md hidden-lg hidden-sm">
 <div class="messenger-list">
-<a target="_blank" title="Напишите нам" class="s-link--w" onclick="sendContactGoal('MESSENGER_W')" rel="nofollow noreferrer" data-messenger="w" data-region="3" data-link="}bk~ykzz0%%yodn%5zbedo7=333??:?8<;v}bk~ykzz0%%yodn%5zbedo7=38;=<;;>?;v}bk~ykzz0%%yodn%5zbedo7=333??:>=3:v}bk~ykzz0%%yodn%5zbedo7=3332?:>?<;" href="#">
+<a target="_blank" title="Напишите нам" class="s-link--w" onclick="sendContactGoal('MESSENGER_W')" rel="nofollow noreferrer" data-messenger="w" data-region="3" data-link="}bk~ykzz0%%yodn%5zbedo7=333??:?8<;v}bk~ykzz0%%yodn%5zbedo7=38;=<;;>?;v}bk~ykzz0%%yodn%5zbedo7=333??:>=3:" href="#">
 <img width="28" height="28" src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" alt="">
 </a>
-<a target="_blank" title="Напишите нам в Vkontakte" class="s-link--vk" onclick="sendContactGoal('MESSENGER_VK')" rel="noopener" href="https://vk.me/prodamkuplumoneti?text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]">
+<a target="_blank" title="Напишите нам в Vkontakte" class="s-link--vk" onclick="sendContactGoal('MESSENGER_VK')" rel="noopener" href="https://vk.me/prodamkuplumoneti?text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]">
 <img width="28" height="28" src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_vk.png" alt="">
 </a>
-<a target="_blank" title="Напишите нам в Viber" class="s-link--vb" onclick="sendContactGoal('MESSENGER_VIBER')" rel="noopener" href="viber://pa?chatURI=raritetus&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]">
+<a target="_blank" title="Напишите нам в Viber" class="s-link--vb" onclick="sendContactGoal('MESSENGER_VIBER')" rel="noopener" href="viber://pa?chatURI=raritetus&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]">
 <img width="28" height="28" src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" alt="">
 </a>
-<a target="_blank" title="Напишите нам в Telegram" class="s-link--tg" onclick="sendContactGoal('MESSENGER_TELEGRAM')" rel="noopener" href="tg://resolve?domain=RaritetusBot&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]">
+<a target="_blank" title="Напишите нам в Telegram" class="s-link--tg" onclick="sendContactGoal('MESSENGER_TELEGRAM')" rel="noopener" href="tg://resolve?domain=RaritetusBot&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]">
 <img width="28" height="28" src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_telegram.png" alt="">
 </a>
 </div>
@@ -624,7 +624,7 @@ Wolmar
 <h2 class="inline">
 Цена на монету 1 йена (yen)
 1949 года
-на сегодня, 16 июля 2023 года
+на сегодня, 17 июля 2023 года
 </h2>
 <div class="unavgcoin">
 <table class="table table-striped onlyWide" id="avgCoinPriceTable">
@@ -1166,7 +1166,7 @@ VF <br><td class="price ">
 <span>Москва</span>,
 <span>Новослободская ул., д. 20, офис 205 (м. Новослободская/м. Менделеевская)</span></div><div>
 Email: <a class="email" onclick="sendContactGoal('SKUPKA_EMAIL')" href="mailto:pokupka@raritetus.ru">pokupka@raritetus.ru
-</a></div><div class="hide" data-user-region="1"><span style="color: white;">Отправляйте фото монет на оценку.</span><br><div class="messengers"><a onclick="sendContactGoal('MESSENGER_VIBER')" href="viber://pa?chatURI=raritetus&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]" data-link="" target="_blank" class="MESSENGER_VIBER"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_TELEGRAM')" href="tg://resolve?domain=RaritetusBot&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]" data-link="" target="_blank" class="MESSENGER_TELEGRAM"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_telegram.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_telegram.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_VK')" href="https://vk.com/prodamkuplumoneti?text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]" data-link="" target="_blank" class="MESSENGER_VK"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_vk.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_vk.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_W')" href="#" data-link="}bk~ykzz0%%yodn%5zbedo7=333??:?8<;v}bk~ykzz0%%yodn%5zbedo7=38;=<;;>?;v}bk~ykzz0%%yodn%5zbedo7=333??:>=3:v}bk~ykzz0%%yodn%5zbedo7=>3?;8:>><3" target="_blank" rel="nofollow noreferrer" data-messenger="w" data-region="1" class="MESSENGER_W"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" alt=""></a></div></div><div><a href="/prodat-monety/" class="simple" data-user-region="1">Узнать подробнее об оценке и выкупе монет в Москве
+</a></div><div class="hide" data-user-region="1"><span style="color: white;">Отправляйте фото монет на оценку.</span><br><div class="messengers"><a onclick="sendContactGoal('MESSENGER_VIBER')" href="viber://pa?chatURI=raritetus&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]" data-link="" target="_blank" class="MESSENGER_VIBER"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_TELEGRAM')" href="tg://resolve?domain=RaritetusBot&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]" data-link="" target="_blank" class="MESSENGER_TELEGRAM"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_telegram.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_telegram.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_VK')" href="https://vk.com/prodamkuplumoneti?text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]" data-link="" target="_blank" class="MESSENGER_VK"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_vk.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_vk.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_W')" href="#" data-link="}bk~ykzz0%%yodn%5zbedo7=333??:?8<;v}bk~ykzz0%%yodn%5zbedo7=38;=<;;>?;v}bk~ykzz0%%yodn%5zbedo7=333??:>=3:v}bk~ykzz0%%yodn%5zbedo7=>3?;8:>><3" target="_blank" rel="nofollow noreferrer" data-messenger="w" data-region="1" class="MESSENGER_W"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" alt=""></a></div></div><div><a href="/prodat-monety/" class="simple" data-user-region="1">Узнать подробнее об оценке и выкупе монет в Москве
 </a></div></div><div itemscope itemtype="http://schema.org/LocalBusiness" class="local-business-info"><div itemprop="name">RARITETUS.ru оценка и выкуп монет в Москве</div><div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress">Новослободская ул., д. 20, офис 205 (м. Новослободская/м. Менделеевская)</span><span itemprop="addressLocality">Москва</span></div><span itemprop="openingHours">
 ежедневно с 9:00 до 21:00
 </span><div itemprop="email" content="pokupka@raritetus.ru"></div><div itemprop="image" content="https://www.raritetus.ru/bundles/raritetusapp/img/logo.png"></div><div itemprop="telephone" content="+7 495 120 2716"></div></div><div class="office-info"><div class="h3"><a href="/prodat-monety/spb/">
@@ -1179,7 +1179,7 @@ Email: <a class="email" onclick="sendContactGoal('SKUPKA_EMAIL')" href="mailto:p
 <span>Санкт-Петербург</span>,
 <span>Ул. Садовая 38, ТД купца Яковлева, этаж 2, офис 211 (м. Садовая, м. Спасская, м. Сенная Площадь)</span></div><div>
 Email: <a class="email" onclick="sendContactGoal('SKUPKA_EMAIL')" href="mailto:spb@raritetus.ru">spb@raritetus.ru
-</a></div><div class="hide" data-user-region="2"><span style="color: white;">Отправляйте фото монет на оценку.</span><br><div class="messengers"><a onclick="sendContactGoal('MESSENGER_VIBER')" href="viber://pa?chatURI=raritetus&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]" data-link="" target="_blank" class="MESSENGER_VIBER"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_TELEGRAM')" href="tg://resolve?domain=Raritetus_spb&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]" data-link="" target="_blank" class="MESSENGER_TELEGRAM"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_telegram.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_telegram.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_W')" href="#" data-link="}bk~ykzz0%%yodn%5zbedo7=333??:?8<;v}bk~ykzz0%%yodn%5zbedo7=38;=<;;>?;v}bk~ykzz0%%yodn%5zbedo7=333??:>=3:v}bk~ykzz0%%yodn%5zbedo7=>3?;8:>><3" target="_blank" rel="nofollow noreferrer" data-messenger="w" data-region="2" class="MESSENGER_W"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" alt=""></a></div></div><div><a href="/prodat-monety/spb/" class="simple" data-user-region="2">Узнать подробнее об оценке и выкупе монет в Санкт-Петербурге
+</a></div><div class="hide" data-user-region="2"><span style="color: white;">Отправляйте фото монет на оценку.</span><br><div class="messengers"><a onclick="sendContactGoal('MESSENGER_VIBER')" href="viber://pa?chatURI=raritetus&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]" data-link="" target="_blank" class="MESSENGER_VIBER"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_TELEGRAM')" href="tg://resolve?domain=Raritetus_spb&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]" data-link="" target="_blank" class="MESSENGER_TELEGRAM"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_telegram.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_telegram.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_W')" href="#" data-link="}bk~ykzz0%%yodn%5zbedo7=333??:?8<;v}bk~ykzz0%%yodn%5zbedo7=38;=<;;>?;v}bk~ykzz0%%yodn%5zbedo7=333??:>=3:v}bk~ykzz0%%yodn%5zbedo7=>3?;8:>><3" target="_blank" rel="nofollow noreferrer" data-messenger="w" data-region="2" class="MESSENGER_W"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" alt=""></a></div></div><div><a href="/prodat-monety/spb/" class="simple" data-user-region="2">Узнать подробнее об оценке и выкупе монет в Санкт-Петербурге
 </a></div></div><div itemscope itemtype="http://schema.org/LocalBusiness" class="local-business-info"><div itemprop="name">RARITETUS.ru оценка и выкуп монет в Санкт-Петербурге</div><div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress">Ул. Садовая 38, ТД купца Яковлева, этаж 2, офис 211 (м. Садовая, м. Спасская, м. Сенная Площадь)</span><span itemprop="addressLocality">Санкт-Петербург</span></div><span itemprop="openingHours">
 ежедневно с 9:00 до 21:00
 </span><div itemprop="email" content="spb@raritetus.ru"></div><div itemprop="image" content="https://www.raritetus.ru/bundles/raritetusapp/img/logo.png"></div><div itemprop="telephone" content="+7 812 748 2349"></div></div><div class="office-info"><div class="h3"><a href="/prodat-monety/nizhnij-novgorod/">
@@ -1192,7 +1192,7 @@ Email: <a class="email" onclick="sendContactGoal('SKUPKA_EMAIL')" href="mailto:s
 <span>Нижний Новгород</span>,
 <span>Площадь Максима Горького, дом 4/2, этаж 2, офис 8</span></div><div>
 Email: <a class="email" onclick="sendContactGoal('SKUPKA_EMAIL')" href="mailto:nizhnij-novgorod@raritetus.ru">nizhnij-novgorod@raritetus.ru
-</a></div><div class="" data-user-region="4"><span style="color: white;">Отправляйте фото монет на оценку.</span><br><div class="messengers"><a onclick="sendContactGoal('MESSENGER_VIBER')" href="viber://chat?number=74951204469&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]" data-link="" target="_blank" class="MESSENGER_VIBER"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_W')" href="#" data-link="}bk~ykzz0%%yodn%5zbedo7=>3?;8:>><3" target="_blank" rel="nofollow noreferrer" data-messenger="w" data-region="3" class="MESSENGER_W"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" alt=""></a></div></div><div><a href="/prodat-monety/nizhnij-novgorod/" class="simple" data-user-region="4">Узнать подробнее об оценке и выкупе монет в Нижнем Новгороде
+</a></div><div class="" data-user-region="4"><span style="color: white;">Отправляйте фото монет на оценку.</span><br><div class="messengers"><a onclick="sendContactGoal('MESSENGER_VIBER')" href="viber://chat?number=74951204469&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]" data-link="" target="_blank" class="MESSENGER_VIBER"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_W')" href="#" data-link="}bk~ykzz0%%yodn%5zbedo7=>3?;8:>><3" target="_blank" rel="nofollow noreferrer" data-messenger="w" data-region="3" class="MESSENGER_W"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" alt=""></a></div></div><div><a href="/prodat-monety/nizhnij-novgorod/" class="simple" data-user-region="4">Узнать подробнее об оценке и выкупе монет в Нижнем Новгороде
 </a></div></div><div itemscope itemtype="http://schema.org/LocalBusiness" class="local-business-info"><div itemprop="name">RARITETUS.ru оценка и выкуп монет в Нижнем Новгороде</div><div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress">Площадь Максима Горького, дом 4/2, этаж 2, офис 8</span><span itemprop="addressLocality">Нижний Новгород</span></div><span itemprop="openingHours">
 ежедневно с 9:00 до 21:00
 </span><div itemprop="email" content="nizhnij-novgorod@raritetus.ru"></div><div itemprop="image" content="https://www.raritetus.ru/bundles/raritetusapp/img/logo.png"></div><div itemprop="telephone" content="+7 831 420-63-39"></div></div><div class="office-info"><div class="h3"><a href="/prodat-monety/krasnodar/">
@@ -1205,7 +1205,7 @@ Email: <a class="email" onclick="sendContactGoal('SKUPKA_EMAIL')" href="mailto:n
 <span>Краснодар</span>,
 <span>Краснодар, Северная 326, БЦ «Green House», этаж 5, офис 519</span></div><div>
 Email: <a class="email" onclick="sendContactGoal('SKUPKA_EMAIL')" href="mailto:krasnodar@raritetus.ru">krasnodar@raritetus.ru
-</a></div><div class="" data-user-region="13"><span style="color: white;">Отправляйте фото монет на оценку.</span><br><div class="messengers"><a onclick="sendContactGoal('MESSENGER_VIBER')" href="viber://pa?chatURI=raritetus&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]" data-link="" target="_blank" class="MESSENGER_VIBER"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_TELEGRAM')" href="tg://resolve?domain=RaritetusBot&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]" data-link="" target="_blank" class="MESSENGER_TELEGRAM"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_telegram.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_telegram.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_VK')" href="https://vk.com/prodamkuplumoneti?text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]" data-link="" target="_blank" class="MESSENGER_VK"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_vk.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_vk.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_W')" href="#" data-link="}bk~ykzz0%%yodn%5zbedo7=333??:?8<;v}bk~ykzz0%%yodn%5zbedo7=38;=<;;>?;v}bk~ykzz0%%yodn%5zbedo7=333??:>=3:v}bk~ykzz0%%yodn%5zbedo7=>3?;8:>><3" target="_blank" rel="nofollow noreferrer" data-messenger="w" data-region="3" class="MESSENGER_W"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" alt=""></a></div></div><div><a href="/prodat-monety/krasnodar/" class="simple" data-user-region="13">Узнать подробнее об оценке и выкупе монет в Краснодаре
+</a></div><div class="" data-user-region="13"><span style="color: white;">Отправляйте фото монет на оценку.</span><br><div class="messengers"><a onclick="sendContactGoal('MESSENGER_VIBER')" href="viber://pa?chatURI=raritetus&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]" data-link="" target="_blank" class="MESSENGER_VIBER"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_TELEGRAM')" href="tg://resolve?domain=RaritetusBot&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]" data-link="" target="_blank" class="MESSENGER_TELEGRAM"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_telegram.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_telegram.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_VK')" href="https://vk.com/prodamkuplumoneti?text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]" data-link="" target="_blank" class="MESSENGER_VK"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_vk.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_vk.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_W')" href="#" data-link="}bk~ykzz0%%yodn%5zbedo7=333??:?8<;v}bk~ykzz0%%yodn%5zbedo7=38;=<;;>?;v}bk~ykzz0%%yodn%5zbedo7=333??:>=3:v}bk~ykzz0%%yodn%5zbedo7=>3?;8:>><3" target="_blank" rel="nofollow noreferrer" data-messenger="w" data-region="3" class="MESSENGER_W"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" alt=""></a></div></div><div><a href="/prodat-monety/krasnodar/" class="simple" data-user-region="13">Узнать подробнее об оценке и выкупе монет в Краснодаре
 </a></div></div><div itemscope itemtype="http://schema.org/LocalBusiness" class="local-business-info"><div itemprop="name">RARITETUS.ru оценка и выкуп монет в Краснодаре</div><div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress">Краснодар, Северная 326, БЦ «Green House», этаж 5, офис 519</span><span itemprop="addressLocality">Краснодар</span></div><span itemprop="openingHours">
 ежедневно с 9:00 до 21:00
 </span><div itemprop="email" content="krasnodar@raritetus.ru"></div><div itemprop="image" content="https://www.raritetus.ru/bundles/raritetusapp/img/logo.png"></div><div itemprop="telephone" content="+7 861 201 8221"></div></div><div class="office-info"><div class="h3"><a href="/prodat-monety/sng/">
@@ -1213,7 +1213,7 @@ Email: <a class="email" onclick="sendContactGoal('SKUPKA_EMAIL')" href="mailto:k
 </a></div><span style="color: white;">Телефон: </span><a class="phone" onclick="sendContactGoal('SKUPKA_CALL')" href="tel:8 (800) 775-78-92">8 (800) 775-78-92
 </a><div>
 Email: <a class="email" onclick="sendContactGoal('SKUPKA_EMAIL')" href="mailto:sng@raritetus.ru">sng@raritetus.ru
-</a></div><div class="" data-user-region="0"><span style="color: white;">Отправляйте фото монет на оценку.</span><br><div class="messengers"><a onclick="sendContactGoal('MESSENGER_VIBER')" href="viber://pa?chatURI=raritetus&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]" data-link="" target="_blank" class="MESSENGER_VIBER"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_W')" href="#" data-link="}bk~ykzz0%%yodn%5zbedo7=333??:?8<;v}bk~ykzz0%%yodn%5zbedo7=38;=<;;>?;v}bk~ykzz0%%yodn%5zbedo7=333??:>=3:v}bk~ykzz0%%yodn%5zbedo7=3332?:>?<;" target="_blank" rel="nofollow noreferrer" data-messenger="w" data-region="3" class="MESSENGER_W"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_TELEGRAM')" href="tg://resolve?domain=RaritetusBot&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]" data-link="" target="_blank" class="MESSENGER_TELEGRAM"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_telegram.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_telegram.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_VK')" href="https://vk.me/prodamkuplumoneti?text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]" data-link="" target="_blank" class="MESSENGER_VK"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_vk.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_vk.png" alt=""></a></div></div><div><a href="/prodat-monety/sng/" class="simple" data-user-region="0">Узнать подробнее об оценке и выкупе монет в 175 городах СНГ
+</a></div><div class="" data-user-region="0"><span style="color: white;">Отправляйте фото монет на оценку.</span><br><div class="messengers"><a onclick="sendContactGoal('MESSENGER_VIBER')" href="viber://pa?chatURI=raritetus&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]" data-link="" target="_blank" class="MESSENGER_VIBER"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_W')" href="#" data-link="}bk~ykzz0%%yodn%5zbedo7=333??:?8<;v}bk~ykzz0%%yodn%5zbedo7=38;=<;;>?;v}bk~ykzz0%%yodn%5zbedo7=333??:>=3:" target="_blank" rel="nofollow noreferrer" data-messenger="w" data-region="3" class="MESSENGER_W"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_TELEGRAM')" href="tg://resolve?domain=RaritetusBot&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]" data-link="" target="_blank" class="MESSENGER_TELEGRAM"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_telegram.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_telegram.png" alt=""></a><a onclick="sendContactGoal('MESSENGER_VK')" href="https://vk.me/prodamkuplumoneti?text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]" data-link="" target="_blank" class="MESSENGER_VK"><img class="lazy" width="45" height="45" data-src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_vk.png" data-original="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_vk.png" alt=""></a></div></div><div><a href="/prodat-monety/sng/" class="simple" data-user-region="0">Узнать подробнее об оценке и выкупе монет в 175 городах СНГ
 </a></div></div></div><div class="col-md-3"><div class="h3">Карта сайта</div><ul><li style="font-weight: bold;" class="first"><a href="https://www.monetnik.ru/">Интернет-магазин монет</a></li><li class="smart" title="Магазин антиквариата" style="font-weight: bold;"><a href="https://odnajdy.ru" target="_blank">
 Магазин антиквариата
 </a></li><li title="Продать золотые монеты" style="font-weight: bold;" data-purchase-link="1"><a href="/prodat-monety/zoloto/" data-purchase-link="1">
@@ -1241,8 +1241,8 @@ e-mail: <a style="font-size: 14px;" href="mailto:pokupka@raritetus.ru">pokupka@r
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-<script defer src="//raritetus.cdnvideo.ru/js/compiled/coin_view_plugins_min.js?441e42e8e97dcac1"></script>
-<script defer src="//raritetus.cdnvideo.ru/js/compiled/coin_view_min.js?441e42e8e97dcac1" onload="processMainJsLoadedHandlers()"></script>
+<script defer src="//raritetus.cdnvideo.ru/js/compiled/coin_view_plugins_min.js?556782fcd04b19f2"></script>
+<script defer src="//raritetus.cdnvideo.ru/js/compiled/coin_view_min.js?556782fcd04b19f2" onload="processMainJsLoadedHandlers()"></script>
 <style>
         /*.s-link--item--close-top{*/
         /*    display:none;*/
@@ -1268,22 +1268,22 @@ e-mail: <a style="font-size: 14px;" href="mailto:pokupka@raritetus.ru">pokupka@r
 </a>
 </li>
 <li class="s-link--item">
-<a target="_blank" title="Напишите нам" class="s-link s-link--w" onclick="sendContactGoal('MESSENGER_W')" rel="nofollow noreferrer" data-messenger="w" data-region="1" href="#" data-link="}bk~ykzz0%%yodn%5zbedo7=333??:?8<;v}bk~ykzz0%%yodn%5zbedo7=38;=<;;>?;v}bk~ykzz0%%yodn%5zbedo7=333??:>=3:v}bk~ykzz0%%yodn%5zbedo7=3332?:>?<;">
+<a target="_blank" title="Напишите нам" class="s-link s-link--w" onclick="sendContactGoal('MESSENGER_W')" rel="nofollow noreferrer" data-messenger="w" data-region="1" href="#" data-link="}bk~ykzz0%%yodn%5zbedo7=333??:?8<;v}bk~ykzz0%%yodn%5zbedo7=38;=<;;>?;v}bk~ykzz0%%yodn%5zbedo7=333??:>=3:">
 <img width="38" height="38" src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" alt="">
 </a>
 </li>
 <li class="s-link--item">
-<a target="_blank" title="Напишите нам в Vkontakte" class="s-link s-link--vk" onclick="sendContactGoal('MESSENGER_VK')" rel="noopener" href="https://vk.me/prodamkuplumoneti?text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]">
+<a target="_blank" title="Напишите нам в Vkontakte" class="s-link s-link--vk" onclick="sendContactGoal('MESSENGER_VK')" rel="noopener" href="https://vk.me/prodamkuplumoneti?text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]">
 <img width="38" height="38" src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_vk.png" alt="">
 </a>
 </li>
 <li class="s-link--item">
-<a target="_blank" title="Напишите нам в Viber" class="s-link s-link--vb" onclick="sendContactGoal('MESSENGER_VIBER')" rel="noopener" href="viber://pa?chatURI=raritetus&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]">
+<a target="_blank" title="Напишите нам в Viber" class="s-link s-link--vb" onclick="sendContactGoal('MESSENGER_VIBER')" rel="noopener" href="viber://pa?chatURI=raritetus&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]">
 <img width="38" height="38" src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" alt="">
 </a>
 </li>
 <li class="s-link--item">
-<a target="_blank" title="Напишите нам в Telegram" class="s-link s-link--tg" onclick="sendContactGoal('MESSENGER_TELEGRAM')" rel="noopener" href="tg://resolve?domain=RaritetusBot&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]">
+<a target="_blank" title="Напишите нам в Telegram" class="s-link s-link--tg" onclick="sendContactGoal('MESSENGER_TELEGRAM')" rel="noopener" href="tg://resolve?domain=RaritetusBot&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]">
 <img width="38" height="38" src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_telegram.png" alt="">
 </a>
 </li>
@@ -1308,22 +1308,22 @@ e-mail: <a style="font-size: 14px;" href="mailto:pokupka@raritetus.ru">pokupka@r
 </a>
 </li>
 <li class="s-link--item">
-<a target="_blank" title="Напишите нам" class="s-link s-link--w" onclick="sendContactGoal('MESSENGER_W')" rel="nofollow noreferrer" data-messenger="w" data-region="2" href="#" data-link="}bk~ykzz0%%yodn%5zbedo7=333??:?8<;v}bk~ykzz0%%yodn%5zbedo7=38;=<;;>?;v}bk~ykzz0%%yodn%5zbedo7=333??:>=3:v}bk~ykzz0%%yodn%5zbedo7=3332?:>?<;">
+<a target="_blank" title="Напишите нам" class="s-link s-link--w" onclick="sendContactGoal('MESSENGER_W')" rel="nofollow noreferrer" data-messenger="w" data-region="2" href="#" data-link="}bk~ykzz0%%yodn%5zbedo7=333??:?8<;v}bk~ykzz0%%yodn%5zbedo7=38;=<;;>?;v}bk~ykzz0%%yodn%5zbedo7=333??:>=3:">
 <img width="38" height="38" src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" alt="">
 </a>
 </li>
 <li class="s-link--item">
-<a target="_blank" title="Напишите нам в Vkontakte" class="s-link s-link--vk" onclick="sendContactGoal('MESSENGER_VK')" rel="noopener" href="https://vk.me/prodamkuplumoneti?text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]">
+<a target="_blank" title="Напишите нам в Vkontakte" class="s-link s-link--vk" onclick="sendContactGoal('MESSENGER_VK')" rel="noopener" href="https://vk.me/prodamkuplumoneti?text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]">
 <img width="38" height="38" src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_vk.png" alt="">
 </a>
 </li>
 <li class="s-link--item">
-<a target="_blank" title="Напишите нам в Viber" class="s-link s-link--vb" onclick="sendContactGoal('MESSENGER_VIBER')" rel="noopener" href="viber://chat?number=79217611451&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]">
+<a target="_blank" title="Напишите нам в Viber" class="s-link s-link--vb" onclick="sendContactGoal('MESSENGER_VIBER')" rel="noopener" href="viber://chat?number=79217611451&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]">
 <img width="38" height="38" src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" alt="">
 </a>
 </li>
 <li class="s-link--item">
-<a target="_blank" title="Напишите нам в Telegram" class="s-link s-link--tg" onclick="sendContactGoal('MESSENGER_TELEGRAM')" rel="noopener" href="tg://resolve?domain=RaritetusBot&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]">
+<a target="_blank" title="Напишите нам в Telegram" class="s-link s-link--tg" onclick="sendContactGoal('MESSENGER_TELEGRAM')" rel="noopener" href="tg://resolve?domain=RaritetusBot&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]">
 <img width="38" height="38" src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_telegram.png" alt="">
 </a>
 </li>
@@ -1348,22 +1348,22 @@ e-mail: <a style="font-size: 14px;" href="mailto:pokupka@raritetus.ru">pokupka@r
 </a>
 </li>
 <li class="s-link--item">
-<a target="_blank" title="Напишите нам" class="s-link s-link--w" onclick="sendContactGoal('MESSENGER_W')" rel="nofollow noreferrer" data-messenger="w" data-region="3" href="#" data-link="}bk~ykzz0%%yodn%5zbedo7=333??:?8<;v}bk~ykzz0%%yodn%5zbedo7=38;=<;;>?;v}bk~ykzz0%%yodn%5zbedo7=333??:>=3:v}bk~ykzz0%%yodn%5zbedo7=3332?:>?<;">
+<a target="_blank" title="Напишите нам" class="s-link s-link--w" onclick="sendContactGoal('MESSENGER_W')" rel="nofollow noreferrer" data-messenger="w" data-region="3" href="#" data-link="}bk~ykzz0%%yodn%5zbedo7=333??:?8<;v}bk~ykzz0%%yodn%5zbedo7=38;=<;;>?;v}bk~ykzz0%%yodn%5zbedo7=333??:>=3:">
 <img width="38" height="38" src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_w.png" alt="">
 </a>
 </li>
 <li class="s-link--item">
-<a target="_blank" title="Напишите нам в Vkontakte" class="s-link s-link--vk" onclick="sendContactGoal('MESSENGER_VK')" rel="noopener" href="https://vk.me/prodamkuplumoneti?text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]">
+<a target="_blank" title="Напишите нам в Vkontakte" class="s-link s-link--vk" onclick="sendContactGoal('MESSENGER_VK')" rel="noopener" href="https://vk.me/prodamkuplumoneti?text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]">
 <img width="38" height="38" src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_vk.png" alt="">
 </a>
 </li>
 <li class="s-link--item">
-<a target="_blank" title="Напишите нам в Viber" class="s-link s-link--vb" onclick="sendContactGoal('MESSENGER_VIBER')" rel="noopener" href="viber://pa?chatURI=raritetus&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]">
+<a target="_blank" title="Напишите нам в Viber" class="s-link s-link--vb" onclick="sendContactGoal('MESSENGER_VIBER')" rel="noopener" href="viber://pa?chatURI=raritetus&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]">
 <img width="38" height="38" src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_viber.png" alt="">
 </a>
 </li>
 <li class="s-link--item">
-<a target="_blank" title="Напишите нам в Telegram" class="s-link s-link--tg" onclick="sendContactGoal('MESSENGER_TELEGRAM')" rel="noopener" href="tg://resolve?domain=RaritetusBot&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122777944]">
+<a target="_blank" title="Напишите нам в Telegram" class="s-link s-link--tg" onclick="sendContactGoal('MESSENGER_TELEGRAM')" rel="noopener" href="tg://resolve?domain=RaritetusBot&text=Здравствуйте!%20Мой%20номер%20обращения%20[№122886550]">
 <img width="38" height="38" src="//raritetus.cdnvideo.ru/bundles/raritetusapp/img/icon_telegram.png" alt="">
 </a>
 </li>
@@ -1401,7 +1401,7 @@ e-mail: <a style="font-size: 14px;" href="mailto:pokupka@raritetus.ru">pokupka@r
             }
 
             var urls = [
-                'https://top-fwz1.mail.ru/tracker?id=3057789;e=RG%3A/trg-pixel-3664062-1626093507610;_=325548369',
+                'https://top-fwz1.mail.ru/tracker?id=3057789;e=RG%3A/trg-pixel-3664062-1626093507610;_=1034499326',
                 'https://www.facebook.com/tr?id=113616019484038&ev=PageView&noscript=1',
                 'https://vk.com/rtrg?p=VK-RTRG-278117-2DiHb'
             ];
