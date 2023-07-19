@@ -11,7 +11,7 @@
 #include <OpenXLSX\OpenXLSX.hpp>
 #include <stdlib.h>
 
-using namespace OpenXLSX;
+	using namespace OpenXLSX;
 using namespace std;
 
 size_t write_data(void* ptr, size_t size, size_t nmemb, std::string* data) {
@@ -213,4 +213,4 @@ int main() {
 		post_money(price, weightAndDiameter[0], edition, weightAndDiameter[1], i);
 	}
 	return 0;
-}
+
