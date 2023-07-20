@@ -11,7 +11,7 @@
 #include <OpenXLSX\OpenXLSX.hpp>
 #include <stdlib.h>
 
-	using namespace OpenXLSX;
+using namespace OpenXLSX;
 using namespace std;
 
 size_t write_data(void* ptr, size_t size, size_t nmemb, std::string* data) {
@@ -168,7 +168,7 @@ vector<double> get_weight_diameter_money(string html)
 		weight.replace(weight.find(","), 1, ".");
 	}
 
-	double d;
+	double d = 0.1;
 	vector<double> vec = num_from_string(weight, d);
 	return vec;
 }
@@ -191,26 +191,144 @@ int get_edition_money(string html) {
 		return vec[0];
 }
 
+//-----------------------------------------//
+//Функции для 2 сайта
+
+//получение информации о монете по порядковому номеру
+string get_money_2(int number)
+{
+	string num = to_string(number + 2);
+	XLDocument doc;
+	doc.open("./111.xlsx");
+	auto wks = doc.workbook().worksheet("Основное");
+	string C = wks.cell("C" + num).value();
+	int D = wks.cell("D" + num).value();
+	string D2 = to_string(D);
+	string F = wks.cell("F" + num).value();
+
+	C = C + D2 + F;
+
+	while (C.find(" ") != std::string::npos) {
+		C.replace(C.find(" "), 1, "+");
+	}
+
+	doc.close();
+
+	return C;
+}
+
+//получение адреса страницы монеты из страницы поиска
+string parse_url_money_2(string html)
+{
+	int StUrl, EnUrl;
+	string NewUrl;
+	StUrl = html.find("data-url=") + 10;
+	EnUrl = html.find("?cart=");
+	NewUrl = html.substr(StUrl, EnUrl - StUrl);
+	return NewUrl;
+}
+
+//получение цены с аукциона
+int price_money(string html)
+{
+	int priceMoneyStr = html.find("data-price=");
+	string priceMoney = html.substr(priceMoneyStr, 50);
+
+	while (priceMoney.find(" ") != std::string::npos) {
+		priceMoney.erase(priceMoney.find(" "), 1);
+	}
+
+	int d = 1;
+	vector<int> vec = num_from_string(priceMoney, d);
+	if (vec.empty())
+		return 0;
+	else
+		return vec[0];
+}
+
+//получение диаметра, веса и тиража
+vector<double> get_weight_diameter_edition_money(string html)
+{
+	int weightMoneyStr = html.find("features striped");
+	string weight = html.substr(weightMoneyStr + 250, 400);
+
+	while (weight.find(",") != std::string::npos) {
+		weight.replace(weight.find(","), 1, ".");
+	}
+
+	while (weight.find(" ") != std::string::npos) {
+		weight.erase(weight.find(" "), 1);
+	}
+
+	double d = 0.1;
+	vector<double> vec = num_from_string(weight, d);
+	auto iter = vec.cbegin();
+	if (vec.size() < 4)
+		throw "Error: Not found on the site";
+	return vec;
+}
+
+//запись даннных о монете
+void post_money_2(int price, float weight, int edition, float diametr, int number)
+{
+	string num = to_string(number + 2);
+	XLDocument doc;
+	doc.open("./111.xlsx");
+	auto wks = doc.workbook().worksheet("Основное");
+	wks.cell("S" + num).value() = price;
+	wks.cell("J" + num).value() = weight;
+	wks.cell("L" + num).value() = diametr;
+	wks.cell("K" + num).value() = edition;
+	doc.save();
+	cout << num << ":   " << "Average cost: " << price << "   Weight: " << weight << "   Edition: " << edition << "   Diameter: " << diametr << endl;
+	doc.close();
+}
+
+//--------------------------------------------------//
+
 int main() {
 	int k = count_money();
 	cout << "Number of coins: " << k << endl;
 	for (int i = 1; i <= k; i++) {
 		string* m;
 		string money, condition, html, url;
+		//для 1 сайта
 		m = get_money(i);
 		money = m[0];
 		condition = m[1];
 		html = get_data_from_site("https://www.raritetus.ru/search/catalog/?par=" + money);
-		if (html == "")
-			continue;
 		url = parse_url_money(html);
 		html = get_data_from_site("https://www.raritetus.ru" + url);
-		if (html == "")
-			continue;
-		int price = get_middle_price(html, condition);
-		vector<double> weightAndDiameter = get_weight_diameter_money(html);
-		int edition = get_edition_money(html);
-		post_money(price, weightAndDiameter[0], edition, weightAndDiameter[1], i);
+		if (html != "")
+		{
+			int price = get_middle_price(html, condition);
+			vector<double> weightAndDiameter = get_weight_diameter_money(html);
+			int edition = get_edition_money(html);
+			post_money(price, weightAndDiameter[0], edition, weightAndDiameter[1], i);
+		}
+		else
+		{
+			//для 2 сайта
+			cout << "Look at the site coinsmart.ru ..." << endl;
+			money = get_money_2(i);
+			html = get_data_from_site("https://coinsmart.ru/search/?query=" + money);
+			url = parse_url_money_2(html);
+			html = get_data_from_site("https://coinsmart.ru" + url);
+			cout << endl << url << endl << endl;
+			try {
+				if (html == "")
+				{
+					cout << "Not info" << endl;
+					continue;
+				}
+				int price = price_money(html);
+				vector<double> weightDiameterEdition = get_weight_diameter_edition_money(html);
+				post_money_2(price, weightDiameterEdition[1], weightDiameterEdition[3], weightDiameterEdition[0], i);
+			}
+			catch (const char* error_message){
+				cout << error_message << endl;
+			}
+		}
 	}
 	return 0;
-
+}
