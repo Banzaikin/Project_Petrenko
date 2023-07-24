@@ -143,7 +143,7 @@ vector<T> num_from_string(string str, T x)
 	vector <T> Tvector;
 	char temp[1024];
 	strcpy(temp, str.c_str());
-	for (auto i = strtok(temp, " \f\n\r\t\v<>"); i != nullptr; i = strtok(nullptr, " \f\n\r\t\v<>")) {
+	for (auto i = strtok(temp, " \f\n\r\t\v<>"""); i != nullptr; i = strtok(nullptr, " \f\n\r\t\v<>""")) {
 		char* it;
 		double num = strtod(i, &it);
 
@@ -251,11 +251,12 @@ void money::get_weight_diameter_edition_money2()
 	double d = 0.1;
 	vector<double> vec = num_from_string(weight_s, d);
 	
-
-	middlePrice2 = vec[0];
-	weight = vec[1];
-	edition = vec[2];
-	diametr = vec[3];
+	if (weight == 0)
+		weight = vec[1];
+	if (edition == 0)
+		edition = vec[3];
+	if (diametr == 0)
+		diametr = vec[0];
 
 }
 
@@ -283,6 +284,10 @@ int main() {
 		cout << '\n';
 		cout << "Look at the site coinsmart.ru ..." << endl;
 		M.html2 = get_data_from_site("https://coinsmart.ru/search/?query=" + M.url);
+		std::ofstream out;          // поток для записи
+		out.open("hello2.txt");      // открываем файл для записи
+		out << M.html2;
+		out.close();
 		M.url2 = parse_url_money_2(M.html2);
 		M.html2 = get_data_from_site("https://coinsmart.ru" + M.url2);
 		if (M.html2 != "" && M.url2 != "") {
