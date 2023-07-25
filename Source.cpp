@@ -27,6 +27,7 @@ public:
 	string url2;
 	string html1;
 	string html2;
+	string html3;
 	money(int num) { number = num; }
 	void get_money();
 	void post_money();
@@ -93,7 +94,7 @@ void money::get_money()
 	string D2 = to_string(D);
 	string F = wks.cell("F" + num).value();
 
-	url = C + D2 + F;
+	url = C + " " + D2 + " " + F;
 
 	while (url.find(" ") != string::npos) {
 		url.replace(url.find(" "), 1, "+");
@@ -198,7 +199,7 @@ void money::get_weight_diameter_edition_money()
 	}
 	double d = 0.1;
 	vector<double> vec2 = num_from_string(weight_s, d);
-	
+
 	weight = vec2[0];
 	diametr = vec2[1];
 }
@@ -230,8 +231,8 @@ void money::price_money2()
 
 	int d = 1;
 	vector<int> vec = num_from_string(priceMoney, d);
-	
-	middlePrice2 =  vec[0];
+
+	middlePrice2 = vec[0];
 }
 
 //получение диаметра, веса и тиража
@@ -250,7 +251,7 @@ void money::get_weight_diameter_edition_money2()
 
 	double d = 0.1;
 	vector<double> vec = num_from_string(weight_s, d);
-	
+
 	if (weight == 0)
 		weight = vec[1];
 	if (edition == 0)
@@ -260,7 +261,21 @@ void money::get_weight_diameter_edition_money2()
 
 }
 
-
+string parse_url_money_3(string html)
+{
+	int StUrl, EnUrl;
+	string SubHtml, NewUrl;
+	StUrl = html.find("</script></center>");
+	SubHtml = html.substr(StUrl, 500);
+	StUrl = SubHtml.find("/coin/");
+	while (SubHtml[StUrl] != '"')
+	{
+		NewUrl += SubHtml[StUrl];
+		StUrl++;
+	}
+	cout << NewUrl;
+	return NewUrl;
+}
 //--------------------------------------------------//
 
 int main() {
@@ -284,10 +299,6 @@ int main() {
 		cout << '\n';
 		cout << "Look at the site coinsmart.ru ..." << endl;
 		M.html2 = get_data_from_site("https://coinsmart.ru/search/?query=" + M.url);
-		std::ofstream out;          // поток для записи
-		out.open("hello2.txt");      // открываем файл для записи
-		out << M.html2;
-		out.close();
 		M.url2 = parse_url_money_2(M.html2);
 		M.html2 = get_data_from_site("https://coinsmart.ru" + M.url2);
 		if (M.html2 != "" && M.url2 != "") {
@@ -298,7 +309,12 @@ int main() {
 		else {
 			cout << "Not info2";
 		}
-		cout << '\n';
+		cout << '\n' << "ucoin";
+		M.html3 = get_data_from_site("https://ru.ucoin.net/catalog/?q=" + M.url);
+		M.url2 = parse_url_money_3(M.html3);
+		M.html3 = get_data_from_site("https://ru.ucoin.net" + M.url2);
+		cout << "end\n";
+		Sleep(5000);
 	}
 	return 0;
 }
