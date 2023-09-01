@@ -7,14 +7,19 @@
 #include "curl\curl.h"
 #include <windows.h>
 #include <fstream>
-#include <cmath>
+#include <cmath>f
 #include <OpenXLSX\OpenXLSX.hpp>
 #include <stdlib.h>
+#include "windows.h"
+
 
 using namespace OpenXLSX;
 using namespace std;
 
 class money {
+public:
+	string token = "SP";
+	double year;
 	int number;
 	string condition;
 	double weight = 0;
@@ -22,6 +27,7 @@ class money {
 	int edition = 0;
 	int middlePrice1 = 0;
 	int middlePrice2 = 0;
+	double middlePrice3 = 0;
 public:
 	string url;
 	string url2;
@@ -35,6 +41,8 @@ public:
 	void get_weight_diameter_edition_money();
 	void price_money2();
 	void get_weight_diameter_edition_money2();
+	void get_weight_diameter_edition_money3();
+
 };
 size_t write_data(void* ptr, size_t size, size_t nmemb, std::string* data) {
 	data->append((char*)ptr, size * nmemb);
@@ -93,6 +101,7 @@ void money::get_money()
 	int D = wks.cell("D" + num).value();
 	string D2 = to_string(D);
 	string F = wks.cell("F" + num).value();
+	year = D;
 
 	url = C + " " + D2 + " " + F;
 
@@ -113,6 +122,7 @@ void money::post_money()
 	auto wks = doc.workbook().worksheet("Main");
 	wks.cell("R" + num).value() = middlePrice1;
 	wks.cell("S" + num).value() = middlePrice2;
+	wks.cell("T" + num).value() = middlePrice3;
 	wks.cell("J" + num).value() = weight;
 	wks.cell("L" + num).value() = diametr;
 	wks.cell("K" + num).value() = edition;
@@ -276,9 +286,125 @@ string parse_url_money_3(string html)
 	cout << NewUrl;
 	return NewUrl;
 }
+
+
+void money::get_weight_diameter_edition_money3()
+{
+	ifstream in;
+	in.open("all information.txt");
+	std::stringstream ss;
+	ss << in.rdbuf();
+	string text = ss.str();
+	int position1 = text.find("Вес");
+	int position2 = text.find("Толщина");
+	string numText = text.substr(position1, position2 - position1);
+	if (this->weight != 0 && this->diametr != 0) {
+		try {
+			double i = 1.1;
+			vector<double> vec1 = num_from_string(numText, i);
+			this->weight = vec1[0];
+			this->diametr = vec1[1];
+		}
+		catch (...){}
+	}
+
+	// таблица с разновидностью
+	try {
+		int positionTable1 = text.find("Знак Описание");
+		if (positionTable1 != string::npos)
+		{
+			string tableText = text.substr(positionTable1, text.length() - positionTable1);
+			int positionToken = tableText.find(this->token);
+			if (positionToken != string::npos)
+			{
+				string rowsWithToken = tableText.substr(positionToken, tableText.length() - positionToken);
+				string rowWithToken = rowsWithToken.substr(0, rowsWithToken.find("\n"));
+				double i = 1.0;
+				vector<double> vec1 = num_from_string(rowWithToken, i);
+				this->middlePrice3 = vec1[0];
+			}
+			else this->middlePrice3 = 0;
+
+		}
+	}
+	catch (...) { this->middlePrice3 = 0; }
+
+
+
+	// таблица с тиражом
+	int positionTable2 = text.find("Тираж");
+	for (int i = positionTable2; i < text.length(); i++) {
+		if (text[i] == '\n' && text[i + 1] == '\n')
+		{
+			text[i] = '\n';
+			text[i + 1] = 'V';
+		}
+	}
+	string textWithYear = text.substr(positionTable2, text.find('V') - positionTable2);
+	int positionYear = textWithYear.find(to_string(year));
+	if (positionYear == string::npos)
+	{
+		try
+		{
+			if (text.find("Цена") != string::npos) {
+				double j = 1;
+				vector<double> vec2 = num_from_string(textWithYear, j);
+				this->middlePrice3 = vec2[vec2.size() - 1];
+			}
+			int pos = textWithYear.find(".");
+			while (pos != string::npos)
+			{
+				textWithYear.replace(pos, 1, "");
+				pos = textWithYear.find(".");
+			}
+			int i = 1;
+			vector<int> vec1 = num_from_string(textWithYear, i);
+			if (vec1[0] == year) {
+				this->edition = vec1[1];
+			}
+			else{ this->edition = vec1[0]; }
+		}
+		catch (...){}
+	}
+	else
+	{
+
+		string rowsWithYear = textWithYear.substr(positionYear, textWithYear.length());
+		string rowWithYear = rowsWithYear.substr(0, rowsWithYear.find("\n"));
+		try
+		{
+			double j = 1;
+			vector<double> vec2 = num_from_string(rowWithYear, j);
+			if ((vec2[vec2.size() - 1]) != year)
+			{
+				this->middlePrice3 = vec2[vec2.size() - 1];
+
+				int pos = rowWithYear.find(".");
+				while (pos != string::npos)
+				{
+					rowWithYear.replace(pos, 1, "");
+					pos = rowWithYear.find(".");
+				}
+
+				int i = 1;
+				vector<int> vec1 = num_from_string(rowWithYear, i);
+				this->edition = vec1[1];
+			}
+		}
+		catch (...){}
+	}
+
+	in.close();
+
+}
+
+
+
+
 //--------------------------------------------------//
 
 int main() {
+	SetConsoleCP(1251); SetConsoleOutputCP(1251);
 	int k = count_money();
 	cout << "Number of coins: " << k << endl;
 	for (int i = 1; i <= k; i++) {
@@ -289,9 +415,12 @@ int main() {
 		M.url2 = parse_url_money(M.html1);
 		M.html1 = get_data_from_site("https://www.raritetus.ru" + M.url2);
 		if (M.html1 != "" && M.url2 != "") {
-			M.get_middle_price();
-			M.get_weight_diameter_edition_money();
-			M.post_money();
+			try {
+				M.get_middle_price();
+				M.get_weight_diameter_edition_money();
+			}
+			catch (...) {}
+
 		}
 		else {
 			cout << "Not info1";
@@ -302,19 +431,35 @@ int main() {
 		M.url2 = parse_url_money_2(M.html2);
 		M.html2 = get_data_from_site("https://coinsmart.ru" + M.url2);
 		if (M.html2 != "" && M.url2 != "") {
-			M.price_money2();
-			M.get_weight_diameter_edition_money2();
-			M.post_money();
+			try {
+				M.price_money2();
+				M.get_weight_diameter_edition_money2();
+
+			}
+			catch (...) {}
 		}
 		else {
 			cout << "Not info2";
 		}
 		cout << '\n' << "ucoin";
-		M.html3 = get_data_from_site("https://ru.ucoin.net/catalog/?q=" + M.url);
+		/*M.html3 = get_data_from_site("https://ru.ucoin.net/catalog/?q=" + M.url);
 		M.url2 = parse_url_money_3(M.html3);
-		M.html3 = get_data_from_site("https://ru.ucoin.net" + M.url2);
+		M.html3 = get_data_from_site("https://ru.ucoin.net" + M.url2);*/
+		ofstream out;          // поток для записи
+		out.open("money.txt");      // открываем файл для записи
+		string url = M.url;
+		while (url.find("+") != string::npos) {
+			url.replace(url.find("+"), 1, " ");
+		}
+		out << url << "\n";
+		out.close();
+		try {
+			system("java -jar OldMoneyParser.jar");
+			M.get_weight_diameter_edition_money3();
+			M.post_money();
+		}
+		catch (...) {}
 		cout << "end\n";
-		Sleep(5000);
 	}
 	return 0;
 }
