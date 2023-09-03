@@ -18,10 +18,12 @@ using namespace std;
 
 class money {
 public:
+	double thickness = 0;
+	vector <string> vectorCutStringUcoin;
 	string infoUcoin;
 	string name;
 	string name2;
-	string token = "SP";
+	string token;
 	double year;
 	int number;
 	string condition;
@@ -46,8 +48,10 @@ public:
 	void price_money2();
 	void get_weight_diameter_edition_money2();
 	void get_weight_diameter_edition_money3();
+	void GetWeightDiameterThicknessUcoin();
 	void CutStringAllMoney(vector <money> Vector, int num, int k, string allInformation);
 	void GetInfoFromThreeSite();
+	void CutStringFromUcoin();
 };
 size_t write_data(void* ptr, size_t size, size_t nmemb, std::string* data) {
 	data->append((char*)ptr, size * nmemb);
@@ -103,11 +107,14 @@ void money::get_money()
 
 	url = C + " " + D2 + " " + F;
 	name = url;
+
 	while (url.find(" ") != string::npos) {
 		url.replace(url.find(" "), 1, "+");
 	}
 	string E = wks.cell("E" + num).value();
 	condition = E;
+	string G = wks.cell("G" + num).value();
+	token = G;
 	doc.close();
 }
 
@@ -118,15 +125,16 @@ void money::post_money()
 	XLDocument doc;
 	doc.open("./111.xlsx");
 	auto wks = doc.workbook().worksheet("Main");
-	wks.cell("R" + num).value() = middlePrice1;
-	wks.cell("S" + num).value() = middlePrice2;
-	wks.cell("T" + num).value() = middlePrice3;
-	wks.cell("J" + num).value() = weight;
-	wks.cell("L" + num).value() = diametr;
-	wks.cell("K" + num).value() = edition;
+	wks.cell("T" + num).value() = middlePrice1;
+	wks.cell("U" + num).value() = middlePrice2;
+	wks.cell("V" + num).value() = middlePrice3;
+	wks.cell("K" + num).value() = weight;
+	wks.cell("N" + num).value() = diametr;
+	wks.cell("L" + num).value() = edition;
+	wks.cell("M" + num).value() = thickness;
 
 	doc.save();
-	cout << num << ":   " << "1 price: " << middlePrice1 << " 2 price: " << middlePrice2 << "   Weight: " << weight << "   Edition: " << edition << "   Diameter: " << diametr << endl;
+	//cout << num << ":   " << "1 price: " << middlePrice1 << " 2 price: " << middlePrice2 << "   Weight: " << weight << "   Edition: " << edition << "   Diameter: " << diametr << endl;
 	doc.close();
 }
 
@@ -286,112 +294,127 @@ string parse_url_money_3(string html)
 }
 
 
-void money::get_weight_diameter_edition_money3()
-{
-	string text;
+//void money::get_weight_diameter_edition_money3()
+//{
+//
+//	// таблица с разновидностью
+//	try {
+//		int positionTable1 = text.find("Знак Описание");
+//		if (positionTable1 != string::npos)
+//		{
+//			cout << "!!!!!!!";
+//			string tableText = text.substr(positionTable1, text.length() - positionTable1);
+//			int positionToken = tableText.find(this->token);
+//			cout << positionToken;
+//			if (positionToken != string::npos)
+//			{
+//				string rowsWithToken = tableText.substr(positionToken, tableText.length() - positionToken);
+//				string rowWithToken = rowsWithToken.substr(0, rowsWithToken.find("\n"));
+//				double i = 1.0;
+//				vector<double> vec1 = num_from_string(rowWithToken, i);
+//				this->middlePrice3 = vec1[0];
+//				cout << rowWithToken;
+//			}
+//
+//		}
+//	}
+//	catch (...) { this->middlePrice3 = 0; }
+//
+//
+//
+//	// таблица с тиражом
+//	int positionTable2 = text.find("Тираж");
+//	for (int i = positionTable2; i < text.length(); i++) {
+//		if (text[i] == '\n' && text[i + 1] == '\n')
+//		{
+//			text[i] = '\n';
+//			text[i + 1] = 'V';
+//		}
+//	}
+//	//cout << text;
+//	string textWithYear = text.substr(positionTable2, text.find('V') - positionTable2);
+//	int positionYear = textWithYear.find(to_string(year));
+//	if (positionYear == string::npos)
+//	{
+//		try
+//		{
+//			if (text.find("Цена") != string::npos) {
+//				double j = 1;
+//				vector<double> vec2 = num_from_string(textWithYear, j);
+//				this->middlePrice3 = vec2[vec2.size() - 1];
+//			}
+//			int pos = textWithYear.find(".");
+//			while (pos != string::npos)
+//			{
+//				textWithYear.replace(pos, 1, "");
+//				pos = textWithYear.find(".");
+//			}
+//			int i = 1;
+//			vector<int> vec1 = num_from_string(textWithYear, i);
+//			if (vec1[0] == year) {
+//				this->edition = vec1[1];
+//			}
+//			else{ this->edition = vec1[0]; }
+//		}
+//		catch (...){}
+//	}
+//	else
+//	{
+//
+//		string rowsWithYear = textWithYear.substr(positionYear, textWithYear.length());
+//		string rowWithYear = rowsWithYear.substr(0, rowsWithYear.find("\n"));
+//		try
+//		{
+//			double j = 1;
+//			vector<double> vec2 = num_from_string(rowWithYear, j);
+//			if ((vec2[vec2.size() - 1]) != year)
+//			{
+//				this->middlePrice3 = vec2[vec2.size() - 1];
+//
+//				int pos = rowWithYear.find(".");
+//				while (pos != string::npos)
+//				{
+//					rowWithYear.replace(pos, 1, "");
+//					pos = rowWithYear.find(".");
+//				}
+//
+//				int i = 1;
+//				vector<int> vec1 = num_from_string(rowWithYear, i);
+//				this->edition = vec1[1];
+//			}
+//		}
+//		catch (...){}
+//	}
+//
+//
+//}
+
+void money::GetWeightDiameterThicknessUcoin() {
+	string text = vectorCutStringUcoin[1];
 	int position1 = text.find("Вес");
-	int position2 = text.find("Толщина");
-	string numText = text.substr(position1, position2 - position1);
-	if (this->weight != 0 && this->diametr != 0) {
-		try {
-			double i = 1.1;
-			vector<double> vec1 = num_from_string(numText, i);
-			this->weight = vec1[0];
-			this->diametr = vec1[1];
-		}
-		catch (...){}
-	}
-
-	// таблица с разновидностью
+	string numText = text.substr(position1, text.length() - position1);
 	try {
-		int positionTable1 = text.find("Знак Описание");
-		if (positionTable1 != string::npos)
-		{
-			cout << "!!!!!!!";
-			string tableText = text.substr(positionTable1, text.length() - positionTable1);
-			int positionToken = tableText.find(this->token);
-			cout << positionToken;
-			if (positionToken != string::npos)
-			{
-				string rowsWithToken = tableText.substr(positionToken, tableText.length() - positionToken);
-				string rowWithToken = rowsWithToken.substr(0, rowsWithToken.find("\n"));
-				double i = 1.0;
-				vector<double> vec1 = num_from_string(rowWithToken, i);
-				this->middlePrice3 = vec1[0];
-				cout << rowWithToken;
-			}
-
-		}
+		double i = 1.1;
+		vector<double> vec = num_from_string(numText, i);
+		weight = vec[0];
+		diametr = vec[1];
+		thickness = vec[2];
 	}
-	catch (...) { this->middlePrice3 = 0; }
-
-
-
-	// таблица с тиражом
-	int positionTable2 = text.find("Тираж");
-	for (int i = positionTable2; i < text.length(); i++) {
-		if (text[i] == '\n' && text[i + 1] == '\n')
-		{
-			text[i] = '\n';
-			text[i + 1] = 'V';
-		}
-	}
-	//cout << text;
-	string textWithYear = text.substr(positionTable2, text.find('V') - positionTable2);
-	int positionYear = textWithYear.find(to_string(year));
-	if (positionYear == string::npos)
-	{
-		try
-		{
-			if (text.find("Цена") != string::npos) {
-				double j = 1;
-				vector<double> vec2 = num_from_string(textWithYear, j);
-				this->middlePrice3 = vec2[vec2.size() - 1];
-			}
-			int pos = textWithYear.find(".");
-			while (pos != string::npos)
-			{
-				textWithYear.replace(pos, 1, "");
-				pos = textWithYear.find(".");
-			}
-			int i = 1;
-			vector<int> vec1 = num_from_string(textWithYear, i);
-			if (vec1[0] == year) {
-				this->edition = vec1[1];
-			}
-			else{ this->edition = vec1[0]; }
-		}
-		catch (...){}
-	}
-	else
-	{
-
-		string rowsWithYear = textWithYear.substr(positionYear, textWithYear.length());
-		string rowWithYear = rowsWithYear.substr(0, rowsWithYear.find("\n"));
-		try
-		{
-			double j = 1;
-			vector<double> vec2 = num_from_string(rowWithYear, j);
-			if ((vec2[vec2.size() - 1]) != year)
-			{
-				this->middlePrice3 = vec2[vec2.size() - 1];
-
-				int pos = rowWithYear.find(".");
-				while (pos != string::npos)
-				{
-					rowWithYear.replace(pos, 1, "");
-					pos = rowWithYear.find(".");
-				}
-
-				int i = 1;
-				vector<int> vec1 = num_from_string(rowWithYear, i);
-				this->edition = vec1[1];
-			}
-		}
-		catch (...){}
+	catch (...) {}
 	}
 
-
+void money::CutStringFromUcoin() {
+	string infoUcoinText = this->infoUcoin;
+	for (int i = 0; i < infoUcoinText.length(); i++) {
+		if (infoUcoinText[i] == '\n' && infoUcoinText[i + 1] == '\n')
+		{
+			infoUcoinText[i + 1] = '№';
+		}
+	}
+	while (infoUcoinText.length() > 0) {
+		vectorCutStringUcoin.push_back(infoUcoinText.substr(0, infoUcoinText.find('№')));
+		infoUcoinText.erase(0, infoUcoinText.find('№')+1);
+	}
 }
 
 void money::CutStringAllMoney(vector <money> Vector, int num, int k, string allInformation) {
@@ -407,8 +430,8 @@ void money::CutStringAllMoney(vector <money> Vector, int num, int k, string allI
 void money::GetInfoFromThreeSite()
 {
 	system("cls");
-	cout << "Money number: " << this->number << " " << this->name2 << endl;
-	cout << "Find info from raritetus.ru: ";
+	cout << "Money number: " << number << " " << name2 << endl;
+	/*cout << "Find info from raritetus.ru: ";
 	try {
 		this->html1 = get_data_from_site("https://www.raritetus.ru/search/catalog/?par=" + this->url);
 		this->url2 = parse_url_money(this->html1);
@@ -424,8 +447,8 @@ void money::GetInfoFromThreeSite()
 		catch (...) { cout << "Not info" << endl; }
 
 	}
-	cout << "Find info from coinsmart.ru: " << endl;
-	try {
+	cout << "Find info from coinsmart.ru: " << endl;*/
+	/*try {
 		this->html2 = get_data_from_site("https://coinsmart.ru/search/?query=" + this->url);
 		this->url2 = parse_url_money_2(this->html2);
 		this->html2 = get_data_from_site("https://coinsmart.ru" + this->url2);
@@ -438,14 +461,13 @@ void money::GetInfoFromThreeSite()
 			cout << "OK!" << endl;
 		}
 		catch (...) { cout << "Not info" << endl; }
-	}
+	}*/
 	cout << "Find info from ucoin.ru: " << endl;
-	/*try {
-		this->get_weight_diameter_edition_money3();
-		this->post_money();
+	try {
+		GetWeightDiameterThicknessUcoin();
 		cout << "OK!" << endl;
 	}
-	catch (...) { cout << "Not info" << endl; }*/
+	catch (...) { cout << "Not info" << endl; }
 }
 
 string UTF8_to_CP1251(std::string const& utf8)
@@ -485,11 +507,12 @@ int main() {
 		else
 			allMoney += M.name;
 	}
-	ofstream out;         
+
+	/*ofstream out;         
 	out.open("money.txt");      
 	out << allMoney;
 	out.close();
-	system("java -jar OldMoneyParser.jar");
+	system("java -jar OldMoneyParser.jar");*/
 
 	ifstream in;
 	in.open("all information.txt");
@@ -499,12 +522,17 @@ int main() {
 	in.close();
 
 	for (int i = 0; i < k; i++) {
-		moneyVector[i].CutStringAllMoney(moneyVector, i, k, allInformation);
-		cout << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << '\n' << moneyVector[i].infoUcoin << '\n';
+		try {
+			moneyVector[i].CutStringAllMoney(moneyVector, i, k, allInformation);
+			moneyVector[i].CutStringFromUcoin();
+		}
+		catch (...) { cout << "Error with cut!"; }
 		try {
 			moneyVector[i].GetInfoFromThreeSite();
+			moneyVector[i].post_money();
 		}
 		catch( ... ) {}
 	}
+
 	return 0;
 }
