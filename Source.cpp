@@ -18,6 +18,9 @@ using namespace std;
 
 class money {
 public:
+	string infoUcoin;
+	string name;
+	string name2;
 	string token = "SP";
 	double year;
 	int number;
@@ -34,7 +37,8 @@ public:
 	string html1;
 	string html2;
 	string html3;
-	money(int num) { number = num; }
+	money(int num) { number = num; };
+	money() {};
 	void get_money();
 	void post_money();
 	void get_middle_price();
@@ -42,7 +46,8 @@ public:
 	void price_money2();
 	void get_weight_diameter_edition_money2();
 	void get_weight_diameter_edition_money3();
-
+	void CutStringAllMoney(vector <money> Vector, int num, int k, string allInformation);
+	void GetInfoFromThreeSite();
 };
 size_t write_data(void* ptr, size_t size, size_t nmemb, std::string* data) {
 	data->append((char*)ptr, size * nmemb);
@@ -69,13 +74,6 @@ string get_data_from_site(string url) {
 
 		curl_easy_cleanup(curl);
 	}
-
-	std::ofstream out;          // поток для записи
-	out.open("hello.txt");      // открываем файл для записи
-	out << url;
-	out << data;
-	out.close();
-
 	return data;
 };
 
@@ -104,7 +102,7 @@ void money::get_money()
 	year = D;
 
 	url = C + " " + D2 + " " + F;
-
+	name = url;
 	while (url.find(" ") != string::npos) {
 		url.replace(url.find(" "), 1, "+");
 	}
@@ -290,11 +288,7 @@ string parse_url_money_3(string html)
 
 void money::get_weight_diameter_edition_money3()
 {
-	ifstream in;
-	in.open("all information.txt");
-	std::stringstream ss;
-	ss << in.rdbuf();
-	string text = ss.str();
+	string text;
 	int position1 = text.find("Вес");
 	int position2 = text.find("Толщина");
 	string numText = text.substr(position1, position2 - position1);
@@ -313,8 +307,10 @@ void money::get_weight_diameter_edition_money3()
 		int positionTable1 = text.find("Знак Описание");
 		if (positionTable1 != string::npos)
 		{
+			cout << "!!!!!!!";
 			string tableText = text.substr(positionTable1, text.length() - positionTable1);
 			int positionToken = tableText.find(this->token);
+			cout << positionToken;
 			if (positionToken != string::npos)
 			{
 				string rowsWithToken = tableText.substr(positionToken, tableText.length() - positionToken);
@@ -322,8 +318,8 @@ void money::get_weight_diameter_edition_money3()
 				double i = 1.0;
 				vector<double> vec1 = num_from_string(rowWithToken, i);
 				this->middlePrice3 = vec1[0];
+				cout << rowWithToken;
 			}
-			else this->middlePrice3 = 0;
 
 		}
 	}
@@ -340,6 +336,7 @@ void money::get_weight_diameter_edition_money3()
 			text[i + 1] = 'V';
 		}
 	}
+	//cout << text;
 	string textWithYear = text.substr(positionTable2, text.find('V') - positionTable2);
 	int positionYear = textWithYear.find(to_string(year));
 	if (positionYear == string::npos)
@@ -394,72 +391,120 @@ void money::get_weight_diameter_edition_money3()
 		catch (...){}
 	}
 
-	in.close();
 
 }
 
+void money::CutStringAllMoney(vector <money> Vector, int num, int k, string allInformation) {
+	int positionBegin = allInformation.find(Vector[num].name2);
+	if (num < k) {
+		this->infoUcoin = allInformation.substr(positionBegin, allInformation.find(Vector[num+1].name2) - positionBegin);
+	}
+	else {
+		this->infoUcoin = allInformation.substr(positionBegin, allInformation.length() - positionBegin);
+	}
+};
 
+void money::GetInfoFromThreeSite()
+{
+	system("cls");
+	cout << "Money number: " << this->number << " " << this->name2 << endl;
+	cout << "Find info from raritetus.ru: ";
+	try {
+		this->html1 = get_data_from_site("https://www.raritetus.ru/search/catalog/?par=" + this->url);
+		this->url2 = parse_url_money(this->html1);
+		this->html1 = get_data_from_site("https://www.raritetus.ru" + this->url2);
+	}
+	catch ( ... ) {}
+	if (this->html1 != "" && this->url2 != "") {
+		try {
+			this->get_middle_price();
+			this->get_weight_diameter_edition_money();
+			cout << "OK!" << endl;
+		}
+		catch (...) { cout << "Not info" << endl; }
 
+	}
+	cout << "Find info from coinsmart.ru: " << endl;
+	try {
+		this->html2 = get_data_from_site("https://coinsmart.ru/search/?query=" + this->url);
+		this->url2 = parse_url_money_2(this->html2);
+		this->html2 = get_data_from_site("https://coinsmart.ru" + this->url2);
+	}
+	catch (...) {}
+	if (this->html2 != "" && this->url2 != "") {
+		try {
+			this->price_money2();
+			this->get_weight_diameter_edition_money2();
+			cout << "OK!" << endl;
+		}
+		catch (...) { cout << "Not info" << endl; }
+	}
+	cout << "Find info from ucoin.ru: " << endl;
+	/*try {
+		this->get_weight_diameter_edition_money3();
+		this->post_money();
+		cout << "OK!" << endl;
+	}
+	catch (...) { cout << "Not info" << endl; }*/
+}
 
+string UTF8_to_CP1251(std::string const& utf8)
+{
+	if (!utf8.empty())
+	{
+		int wchlen = MultiByteToWideChar(CP_UTF8, 0, utf8.c_str(), utf8.size(), NULL, 0);
+		if (wchlen > 0 && wchlen != 0xFFFD)
+		{
+			std::vector<wchar_t> wbuf(wchlen);
+			MultiByteToWideChar(CP_UTF8, 0, utf8.c_str(), utf8.size(), &wbuf[0], wchlen);
+			std::vector<char> buf(wchlen);
+			WideCharToMultiByte(1251, 0, &wbuf[0], wchlen, &buf[0], wchlen, 0, 0);
+
+			return std::string(&buf[0], wchlen);
+		}
+	}
+	return std::string();
+}
 //--------------------------------------------------//
 
 int main() {
-	SetConsoleCP(1251); SetConsoleOutputCP(1251);
+	SetConsoleCP(1251); 
+	SetConsoleOutputCP(1251);
 	int k = count_money();
 	cout << "Number of coins: " << k << endl;
+	string allInformation;
+	string allMoney;
+	vector <money> moneyVector;
 	for (int i = 1; i <= k; i++) {
-		cout << i << " ";
 		money M(i);
 		M.get_money();
-		M.html1 = get_data_from_site("https://www.raritetus.ru/search/catalog/?par=" + M.url);
-		M.url2 = parse_url_money(M.html1);
-		M.html1 = get_data_from_site("https://www.raritetus.ru" + M.url2);
-		if (M.html1 != "" && M.url2 != "") {
-			try {
-				M.get_middle_price();
-				M.get_weight_diameter_edition_money();
-			}
-			catch (...) {}
+		M.name2 = UTF8_to_CP1251(M.name);
+		moneyVector.push_back(M);
+		if (i!=k)
+			allMoney += M.name += '\n';
+		else
+			allMoney += M.name;
+	}
+	ofstream out;         
+	out.open("money.txt");      
+	out << allMoney;
+	out.close();
+	system("java -jar OldMoneyParser.jar");
 
-		}
-		else {
-			cout << "Not info1";
-		}
-		cout << '\n';
-		cout << "Look at the site coinsmart.ru ..." << endl;
-		M.html2 = get_data_from_site("https://coinsmart.ru/search/?query=" + M.url);
-		M.url2 = parse_url_money_2(M.html2);
-		M.html2 = get_data_from_site("https://coinsmart.ru" + M.url2);
-		if (M.html2 != "" && M.url2 != "") {
-			try {
-				M.price_money2();
-				M.get_weight_diameter_edition_money2();
+	ifstream in;
+	in.open("all information.txt");
+	std::stringstream ss;
+	ss << in.rdbuf();
+	allInformation = ss.str();
+	in.close();
 
-			}
-			catch (...) {}
-		}
-		else {
-			cout << "Not info2";
-		}
-		cout << '\n' << "ucoin";
-		/*M.html3 = get_data_from_site("https://ru.ucoin.net/catalog/?q=" + M.url);
-		M.url2 = parse_url_money_3(M.html3);
-		M.html3 = get_data_from_site("https://ru.ucoin.net" + M.url2);*/
-		ofstream out;          // поток для записи
-		out.open("money.txt");      // открываем файл для записи
-		string url = M.url;
-		while (url.find("+") != string::npos) {
-			url.replace(url.find("+"), 1, " ");
-		}
-		out << url << "\n";
-		out.close();
+	for (int i = 0; i < k; i++) {
+		moneyVector[i].CutStringAllMoney(moneyVector, i, k, allInformation);
+		cout << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << '\n' << moneyVector[i].infoUcoin << '\n';
 		try {
-			system("java -jar OldMoneyParser.jar");
-			M.get_weight_diameter_edition_money3();
-			M.post_money();
+			moneyVector[i].GetInfoFromThreeSite();
 		}
-		catch (...) {}
-		cout << "end\n";
+		catch( ... ) {}
 	}
 	return 0;
 }
