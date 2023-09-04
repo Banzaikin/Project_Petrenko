@@ -35,19 +35,21 @@ public:
 	double middlePrice3 = 0;
 public:
 	string url;
-	string url2;
-	string html1;
-	string html2;
+	string urlRaritetus;
+	string urlCoinsmart;
+	string htmlRaritetus;
+	string htmlCoinsmart;
 	string html3;
 	money(int num) { number = num; };
 	money() {};
-	void get_money();
-	void post_money();
-	void get_middle_price();
-	void get_weight_diameter_edition_money();
-	void price_money2();
-	void get_weight_diameter_edition_money2();
-	void get_weight_diameter_edition_money3();
+	void GetMoneyFromExcel();
+	void PostMoneyIntoExcel();
+	void ParseUrlMoneyCoinsmart();
+	void ParseUrlMoneyRaritetus();
+	void MiddlePriseRaritetus();
+	void GetInfoFromRaritetus();
+	void MiddlePriseCoinsmart();
+	void GetInfoFromCoinsmart();
 	void GetWeightDiameterThicknessUcoin();
 	void CutStringAllMoney(vector <money> Vector, int num, int k, string allInformation);
 	void GetInfoFromThreeSite();
@@ -58,8 +60,44 @@ size_t write_data(void* ptr, size_t size, size_t nmemb, std::string* data) {
 	return size * nmemb;
 }
 
+string UTF8_to_CP1251(std::string const& utf8)
+{
+	if (!utf8.empty())
+	{
+		int wchlen = MultiByteToWideChar(CP_UTF8, 0, utf8.c_str(), utf8.size(), NULL, 0);
+		if (wchlen > 0 && wchlen != 0xFFFD)
+		{
+			std::vector<wchar_t> wbuf(wchlen);
+			MultiByteToWideChar(CP_UTF8, 0, utf8.c_str(), utf8.size(), &wbuf[0], wchlen);
+			std::vector<char> buf(wchlen);
+			WideCharToMultiByte(1251, 0, &wbuf[0], wchlen, &buf[0], wchlen, 0, 0);
+
+			return std::string(&buf[0], wchlen);
+		}
+	}
+	return std::string();
+}
+
+//извлечение чисел в вектор из строки
+template <typename T>
+vector<T> num_from_string(string str, T x)
+{
+	vector <T> Tvector;
+	char temp[1024];
+	strcpy(temp, str.c_str());
+	for (auto i = strtok(temp, " \f\n\r\t\v<>"""); i != nullptr; i = strtok(nullptr, " \f\n\r\t\v<>""")) {
+		char* it;
+		double num = strtod(i, &it);
+
+		if (*it == '\0') {
+			Tvector.push_back(num);
+		}
+	}
+	return Tvector;
+}
+
 // получение html по ссылке
-string get_data_from_site(string url) {
+string GetDataFromSite(string url) {
 	CURL* curl;
 	CURLcode response;
 	std::string data = "";
@@ -93,7 +131,7 @@ int count_money()
 }
 
 //получение информации о монете по порядковому номеру
-void money::get_money()
+void money::GetMoneyFromExcel()
 {
 	string num = to_string(number + 2);
 	XLDocument doc;
@@ -119,7 +157,7 @@ void money::get_money()
 }
 
 //запись даннных о монете
-void money::post_money()
+void money::PostMoneyIntoExcel()
 {
 	string num = to_string(number + 2);
 	XLDocument doc;
@@ -139,40 +177,20 @@ void money::post_money()
 }
 
 //получение адреса страницы монеты из страницы поиска
-string parse_url_money(string html)
+void money::ParseUrlMoneyRaritetus()
 {
 	int StUrl, EnUrl;
-	string NewUrl;
-	StUrl = html.find("url='/stoimost-monet") + 5;
-	EnUrl = html.find("' class=");
+	StUrl = htmlRaritetus.find("url='/stoimost-monet") + 5;
+	EnUrl = htmlRaritetus.find("' class=");
 	if (StUrl == 4 && EnUrl == -1)
-		return "";
+		urlRaritetus = "";
 	else {
-		NewUrl = html.substr(StUrl, EnUrl - StUrl);
-		return NewUrl;
+		urlRaritetus = htmlRaritetus.substr(StUrl, EnUrl - StUrl);
 	}
-}
-
-template <typename T>
-//извлечение чисел в вектор из строки
-vector<T> num_from_string(string str, T x)
-{
-	vector <T> Tvector;
-	char temp[1024];
-	strcpy(temp, str.c_str());
-	for (auto i = strtok(temp, " \f\n\r\t\v<>"""); i != nullptr; i = strtok(nullptr, " \f\n\r\t\v<>""")) {
-		char* it;
-		double num = strtod(i, &it);
-
-		if (*it == '\0') {
-			Tvector.push_back(num);
-		}
-	}
-	return Tvector;
 }
 
 //получение средней цены по коду страницы и сохранности
-void money::get_middle_price() {
+void money::MiddlePriseRaritetus() {
 	int StPrices, numbCond;
 	string condidion_mas[] = { "G","VG","F","VF","XF","AU","UNC" };
 	for (int i = 0; i < 7; i++)
@@ -180,8 +198,8 @@ void money::get_middle_price() {
 			numbCond = i;
 			break;
 		}
-	StPrices = html1.find("avg-prices");
-	string Prices = html1.substr(StPrices + 106, 94);
+	StPrices = htmlRaritetus.find("avg-prices");
+	string Prices = htmlRaritetus.substr(StPrices + 106, 94);
 
 	while (Prices.find("-") != std::string::npos) {
 		Prices.replace(Prices.find("-"), 1, "0");
@@ -194,30 +212,33 @@ void money::get_middle_price() {
 }
 
 //получение веса, диаметра и тиража монеты по 1 сайту
-void money::get_weight_diameter_edition_money()
+void money::GetInfoFromRaritetus()
 {
-	int MoneyStr = html1.find("col-sm-4 descfullcont");
+	int MoneyStr = htmlRaritetus.find("col-sm-4 descfullcont");
 
-	string edition_s = html1.substr(MoneyStr - 80, 35);
+	string edition_s = htmlRaritetus.substr(MoneyStr - 80, 35);
 	while (edition_s.find(" ") != std::string::npos) {
 		edition_s.erase(edition_s.find(" "), 1);
 	}
 	int i = 1;
 	vector<int> vec1 = num_from_string(edition_s, i);
-	if (vec1.empty())
-		edition = 0;
-	else
+	if (!vec1.empty() && edition == 0)
 		edition = vec1[0];
 
-	string weight_s = html1.substr(MoneyStr + 230, 150);
+	string weight_s = htmlRaritetus.substr(MoneyStr + 230, 150);
 	while (weight_s.find(",") != std::string::npos) {
 		weight_s.replace(weight_s.find(","), 1, ".");
 	}
 	double d = 0.1;
 	vector<double> vec2 = num_from_string(weight_s, d);
+	if (vec2.size() >= 2 && (weight == 0 || diametr == 0)) {
+		weight = vec2[0];
+		diametr = vec2[1];
+	}
 
-	weight = vec2[0];
-	diametr = vec2[1];
+	if (weight == vec2[0] && diametr == vec2[1]) {
+		this->MiddlePriseRaritetus();
+	}
 }
 
 
@@ -225,21 +246,24 @@ void money::get_weight_diameter_edition_money()
 //Функции для 2 сайта
 
 //получение адреса страницы монеты из страницы поиска
-string parse_url_money_2(string html)
+void money::ParseUrlMoneyCoinsmart()
 {
 	int StUrl, EnUrl;
 	string NewUrl;
-	StUrl = html.find("data-url=") + 10;
-	EnUrl = html.find("?cart=");
-	NewUrl = html.substr(StUrl, EnUrl - StUrl);
-	return NewUrl;
+	StUrl = htmlCoinsmart.find("data-url=") + 10;
+	EnUrl = htmlCoinsmart.find("?cart=");
+	if (StUrl == 9 && EnUrl == -1)
+		urlCoinsmart = "";
+	else {
+		urlCoinsmart = htmlCoinsmart.substr(StUrl, EnUrl - StUrl);
+	}
 }
 
 //получение цены с аукциона
-void money::price_money2()
+void money::MiddlePriseCoinsmart()
 {
-	int priceMoneyStr = html2.find("data-price=");
-	string priceMoney = html2.substr(priceMoneyStr, 50);
+	int priceMoneyStr = htmlCoinsmart.find("data-price=");
+	string priceMoney = htmlCoinsmart.substr(priceMoneyStr, 50);
 
 	while (priceMoney.find(" ") != std::string::npos) {
 		priceMoney.erase(priceMoney.find(" "), 1);
@@ -252,11 +276,12 @@ void money::price_money2()
 }
 
 //получение диаметра, веса и тиража
-void money::get_weight_diameter_edition_money2()
+void money::GetInfoFromCoinsmart()
 {
-	int weightMoneyStr = html2.find("features striped");
-	string weight_s = html2.substr(weightMoneyStr + 250, 400);
-
+	int weightMoneyStr = htmlCoinsmart.find("features striped");
+	string weight_s = "";
+	if (weightMoneyStr != string::npos)
+		weight_s = htmlCoinsmart.substr(weightMoneyStr + 250, 400);
 	while (weight_s.find(",") != std::string::npos) {
 		weight_s.replace(weight_s.find(","), 1, ".");
 	}
@@ -268,29 +293,25 @@ void money::get_weight_diameter_edition_money2()
 	double d = 0.1;
 	vector<double> vec = num_from_string(weight_s, d);
 
-	if (weight == 0)
+	if (vec.size() >= 4 && weight == 0 && edition == 0 && diametr == 0)
+	{
 		weight = vec[1];
-	if (edition == 0)
 		edition = vec[3];
-	if (diametr == 0)
 		diametr = vec[0];
 
-}
-
-string parse_url_money_3(string html)
-{
-	int StUrl, EnUrl;
-	string SubHtml, NewUrl;
-	StUrl = html.find("</script></center>");
-	SubHtml = html.substr(StUrl, 500);
-	StUrl = SubHtml.find("/coin/");
-	while (SubHtml[StUrl] != '"')
-	{
-		NewUrl += SubHtml[StUrl];
-		StUrl++;
 	}
-	cout << NewUrl;
-	return NewUrl;
+	if (vec.size() >= 4 && (weight == 0 || edition == 0 || diametr == 0) && (weight == vec[1] || edition == vec[3] || diametr == vec[0]))
+	{
+		if (weight == 0)
+			weight = vec[1];
+		if (edition == 0)
+			edition = vec[3];
+		if (diametr == 0)
+			diametr = vec[0];
+	}
+	if (vec.size() >= 2 && weight == vec[1] && diametr == vec[0]) {
+		this->MiddlePriseCoinsmart();
+	}
 }
 
 
@@ -431,62 +452,44 @@ void money::GetInfoFromThreeSite()
 {
 	system("cls");
 	cout << "Money number: " << number << " " << name2 << endl;
-	/*cout << "Find info from raritetus.ru: ";
-	try {
-		this->html1 = get_data_from_site("https://www.raritetus.ru/search/catalog/?par=" + this->url);
-		this->url2 = parse_url_money(this->html1);
-		this->html1 = get_data_from_site("https://www.raritetus.ru" + this->url2);
-	}
-	catch ( ... ) {}
-	if (this->html1 != "" && this->url2 != "") {
-		try {
-			this->get_middle_price();
-			this->get_weight_diameter_edition_money();
-			cout << "OK!" << endl;
-		}
-		catch (...) { cout << "Not info" << endl; }
-
-	}
-	cout << "Find info from coinsmart.ru: " << endl;*/
-	/*try {
-		this->html2 = get_data_from_site("https://coinsmart.ru/search/?query=" + this->url);
-		this->url2 = parse_url_money_2(this->html2);
-		this->html2 = get_data_from_site("https://coinsmart.ru" + this->url2);
-	}
-	catch (...) {}
-	if (this->html2 != "" && this->url2 != "") {
-		try {
-			this->price_money2();
-			this->get_weight_diameter_edition_money2();
-			cout << "OK!" << endl;
-		}
-		catch (...) { cout << "Not info" << endl; }
-	}*/
 	cout << "Find info from ucoin.ru: " << endl;
 	try {
 		GetWeightDiameterThicknessUcoin();
 		cout << "OK!" << endl;
 	}
 	catch (...) { cout << "Not info" << endl; }
-}
-
-string UTF8_to_CP1251(std::string const& utf8)
-{
-	if (!utf8.empty())
-	{
-		int wchlen = MultiByteToWideChar(CP_UTF8, 0, utf8.c_str(), utf8.size(), NULL, 0);
-		if (wchlen > 0 && wchlen != 0xFFFD)
-		{
-			std::vector<wchar_t> wbuf(wchlen);
-			MultiByteToWideChar(CP_UTF8, 0, utf8.c_str(), utf8.size(), &wbuf[0], wchlen);
-			std::vector<char> buf(wchlen);
-			WideCharToMultiByte(1251, 0, &wbuf[0], wchlen, &buf[0], wchlen, 0, 0);
-
-			return std::string(&buf[0], wchlen);
-		}
+	cout << "Find info from raritetus.ru: ";
+	try {
+		this->htmlRaritetus = GetDataFromSite("https://www.raritetus.ru/search/catalog/?par=" + this->url);
+		ParseUrlMoneyRaritetus();
+		this->htmlRaritetus = GetDataFromSite("https://www.raritetus.ru" + this->urlRaritetus);
 	}
-	return std::string();
+	catch ( ... ) {}
+	if (this->htmlRaritetus != "" && this->urlRaritetus != "") {
+		try {
+			this->GetInfoFromRaritetus();
+			cout << "OK!" << endl;
+		}
+		catch (...) { cout << "Not info" << endl; }
+
+	}
+	cout << "Find info from coinsmart.ru: " << endl;
+	try {
+		this->htmlCoinsmart = GetDataFromSite("https://coinsmart.ru/search/?query=" + this->url);
+		ParseUrlMoneyCoinsmart();
+		this->htmlCoinsmart = GetDataFromSite("https://coinsmart.ru" + this->urlCoinsmart);
+	}
+	catch (...) {}
+	if (this->htmlCoinsmart != "" && this->urlCoinsmart != "") {
+		try {
+			this->GetInfoFromCoinsmart();
+			cout << "OK!" << endl;
+		}
+		catch (...) { cout << "Not info" << endl; }
+	}
 }
+
+
 //--------------------------------------------------//
 
 int main() {
@@ -499,7 +502,7 @@ int main() {
 	vector <money> moneyVector;
 	for (int i = 1; i <= k; i++) {
 		money M(i);
-		M.get_money();
+		M.GetMoneyFromExcel();
 		M.name2 = UTF8_to_CP1251(M.name);
 		moneyVector.push_back(M);
 		if (i!=k)
@@ -529,7 +532,7 @@ int main() {
 		catch (...) { cout << "Error with cut!"; }
 		try {
 			moneyVector[i].GetInfoFromThreeSite();
-			moneyVector[i].post_money();
+			moneyVector[i].PostMoneyIntoExcel();
 		}
 		catch( ... ) {}
 	}
