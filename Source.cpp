@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include "windows.h"
 
+
 using namespace OpenXLSX;
 using namespace std;
 
@@ -32,6 +33,10 @@ public:
 	int middlePrice1 = 0;
 	int middlePrice2 = 0;
 	double middlePrice3 = 0;
+	double priceTraidUNCMax = 0;
+	double priceTraidUNCMin = 0;
+	double priceTraidCondMax = 0;
+	double priceTraidCondMin = 0;
 public:
 	string url;
 	string urlRaritetus;
@@ -54,6 +59,7 @@ public:
 	void CutStringAllMoney(vector <money> Vector, int num, int k, string allInformation);
 	void GetInfoFromThreeSite();
 	void CutStringFromUcoin();
+	void GetPriceUcoin();
 };
 size_t write_data(void* ptr, size_t size, size_t nmemb, std::string* data) {
 	data->append((char*)ptr, size * nmemb);
@@ -166,13 +172,18 @@ void money::PostMoneyIntoExcel()
 	wks.cell("T" + num).value() = middlePrice1;
 	wks.cell("U" + num).value() = middlePrice2;
 	wks.cell("V" + num).value() = middlePrice3;
+
+	wks.cell("W" + num).value() = priceTraidUNCMax;
+	wks.cell("X" + num).value() = priceTraidUNCMin;
+	wks.cell("Y" + num).value() = priceTraidCondMax;
+	wks.cell("Z" + num).value() = priceTraidCondMin;
+
 	wks.cell("K" + num).value() = weight;
 	wks.cell("N" + num).value() = diametr;
 	wks.cell("L" + num).value() = edition;
 	wks.cell("M" + num).value() = thickness;
 
 	doc.save();
-	//cout << num << ":   " << "1 price: " << middlePrice1 << " 2 price: " << middlePrice2 << "   Weight: " << weight << "   Edition: " << edition << "   Diameter: " << diametr << endl;
 	doc.close();
 }
 
@@ -329,13 +340,13 @@ void money::GetPriceEdition()
 			cout << text << endl << year << endl;
 
 			int positionYear = text.find(to_string(year));
-			std::cout << "->>>" << positionYear << " : " << text.length() << endl;
+			
 
 			string rowsWithYear = text.substr(positionYear, text.length() - positionYear);
-			std::cout << "1--->" << rowsWithYear << endl;
+
 
 			string rowWithYear = rowsWithYear.substr(0, rowsWithYear.find("\n"));
-			std::cout << "2--->" << rowWithYear << endl;
+
 
 			double j = 1;
 			vector<double> vec2 = num_from_string(rowWithYear, j);
@@ -377,7 +388,7 @@ void money::GetPriceEdition()
 				this->middlePrice3 = vec1[0];
 			}
 
-			string textCopy = vectorCutStringUcoin[3];
+			string textCopy = vectorCutStringUcoin[4];
 			int pos = textCopy.find(".");
 			while (pos != string::npos)
 			{
@@ -389,11 +400,91 @@ void money::GetPriceEdition()
 			this->edition = vec1[0];
 		}
 	}
-	catch (exception e) { std::cout << "ОШибка: " << e.what() << endl; }
-	std::cout << std::endl << "Цена: " << this->middlePrice3 << endl;
-	std::cout << "Тираж: " << this->edition << endl;
+	catch (exception e) { std::cout << "Ошибка: " << e.what() << endl; }
 }
 
+
+void money::GetPriceUcoin()
+{
+	string text = vectorCutStringUcoin[3];
+	string condidion_mas[] = { "G","VG","F","VF","XF","AU","UNC" };
+	vector <string> vectorUcoin;
+	int masPositionCondition[7];
+	while (text.length() > 3)
+	{
+		int minPosition = 100000000;
+		for (int i = 0; i < 7; i++)
+		{
+			masPositionCondition[i] = text.find(condidion_mas[i], 4);
+		}
+		for (int i = 0; i < 7; i++)
+		{
+			if ((masPositionCondition[i] < minPosition) && (masPositionCondition[i] > 0))
+			{
+				minPosition = masPositionCondition[i];
+			}
+		}
+		if (minPosition < string::npos)
+		{
+			vectorUcoin.push_back(text.substr(0, minPosition));
+			text.erase(0, minPosition);
+		}
+		else
+		{
+			vectorUcoin.push_back(text.substr(0, text.length() - 1));
+			text.erase(0, text.length() - 1);
+		}
+
+	}
+	for (int i = 0; i < vectorUcoin.size(); i++)
+	{
+		int posUNC = vectorUcoin[i].find("UNC");
+		int posCond = vectorUcoin[i].find(condition);
+		int posYear = vectorUcoin[i].find(to_string(year));
+		if ((posUNC != -1) && (posUNC != string::npos) && (posYear != -1) && (posYear != string::npos))
+		{
+			string temp = vectorUcoin[i].substr(posYear + 4, vectorUcoin[i].length() - posYear);
+			double d = 0.1;
+			vector<double> tempV = num_from_string(temp, d);
+			if (tempV.size() > 0)
+			{
+				if ((priceTraidUNCMax == 0) || (tempV[0] > priceTraidUNCMax))
+				{
+					priceTraidUNCMax = tempV[0];
+				}
+				if ((priceTraidUNCMin == 0) || (tempV[0] < priceTraidUNCMin))
+				{
+					priceTraidUNCMin = tempV[0];
+				}
+			}
+		}
+		if (condition != "UNC")
+		{
+			if ((posCond != -1) && (posCond != string::npos) && (posYear != -1) && (posYear != string::npos))
+			{
+				string temp = vectorUcoin[i].substr(posYear + 4, vectorUcoin[i].length() - posYear);
+				double d = 0.1;
+				vector<double> tempV = num_from_string(temp, d);
+				if (tempV.size() > 0)
+				{
+					if ((priceTraidCondMax == 0) || (tempV[0] > priceTraidCondMax))
+					{
+						priceTraidCondMax = tempV[0];
+					}
+					if ((priceTraidCondMin == 0) || (tempV[0] < priceTraidCondMin))
+					{
+						priceTraidCondMin = tempV[0];
+					}
+				}
+			}
+		}
+		else
+		{
+			priceTraidCondMax = priceTraidUNCMax;
+			priceTraidCondMin = priceTraidUNCMin;
+		}
+	}
+}
 
 
 void money::GetWeightDiameterThicknessUcoin() {
@@ -446,6 +537,7 @@ void money::GetInfoFromThreeSite()
 	try {
 		GetWeightDiameterThicknessUcoin();
 		GetPriceEdition();
+		GetPriceUcoin();
 		cout << "OK!" << endl;
 	}
 	catch (...) { cout << "Not info" << endl; }
@@ -503,11 +595,18 @@ int main() {
 			allMoney += M.name;
 	}
 
-	ofstream out;
-	out.open("money.txt");
-	out << allMoney;
-	out.close();
-	system("java -jar OldMoneyParser.jar");
+	bool parseUcoin;
+	cout << "Обновить файл информации с Ucoin? (1 - да, 0 - нет): ";
+	cin >> parseUcoin;
+
+	if (parseUcoin)
+	{
+		ofstream out;
+		out.open("money.txt");
+		out << allMoney;
+		out.close();
+		system("java -jar OldMoneyParser.jar");
+	}
 
 	ifstream in;
 	in.open("all information.txt");
@@ -528,6 +627,7 @@ int main() {
 		}
 		catch (...) {}
 	}
+
 
 	return 0;
 }
