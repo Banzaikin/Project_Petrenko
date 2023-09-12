@@ -12,7 +12,6 @@
 #include <stdlib.h>
 #include "windows.h"
 
-
 using namespace OpenXLSX;
 using namespace std;
 
@@ -24,7 +23,7 @@ public:
 	string name;
 	string name2;
 	string token;
-	double year;
+	int year;
 	int number;
 	string condition;
 	double weight = 0;
@@ -51,6 +50,7 @@ public:
 	void MiddlePriseCoinsmart();
 	void GetInfoFromCoinsmart();
 	void GetWeightDiameterThicknessUcoin();
+	void GetPriceEdition();
 	void CutStringAllMoney(vector <money> Vector, int num, int k, string allInformation);
 	void GetInfoFromThreeSite();
 	void CutStringFromUcoin();
@@ -315,106 +315,92 @@ void money::GetInfoFromCoinsmart()
 }
 
 
-//void money::get_weight_diameter_edition_money3()
-//{
-//
-//	// таблица с разновидностью
-//	try {
-//		int positionTable1 = text.find("Знак Описание");
-//		if (positionTable1 != string::npos)
-//		{
-//			cout << "!!!!!!!";
-//			string tableText = text.substr(positionTable1, text.length() - positionTable1);
-//			int positionToken = tableText.find(this->token);
-//			cout << positionToken;
-//			if (positionToken != string::npos)
-//			{
-//				string rowsWithToken = tableText.substr(positionToken, tableText.length() - positionToken);
-//				string rowWithToken = rowsWithToken.substr(0, rowsWithToken.find("\n"));
-//				double i = 1.0;
-//				vector<double> vec1 = num_from_string(rowWithToken, i);
-//				this->middlePrice3 = vec1[0];
-//				cout << rowWithToken;
-//			}
-//
-//		}
-//	}
-//	catch (...) { this->middlePrice3 = 0; }
-//
-//
-//
-//	// таблица с тиражом
-//	int positionTable2 = text.find("Тираж");
-//	for (int i = positionTable2; i < text.length(); i++) {
-//		if (text[i] == '\n' && text[i + 1] == '\n')
-//		{
-//			text[i] = '\n';
-//			text[i + 1] = 'V';
-//		}
-//	}
-//	//cout << text;
-//	string textWithYear = text.substr(positionTable2, text.find('V') - positionTable2);
-//	int positionYear = textWithYear.find(to_string(year));
-//	if (positionYear == string::npos)
-//	{
-//		try
-//		{
-//			if (text.find("Цена") != string::npos) {
-//				double j = 1;
-//				vector<double> vec2 = num_from_string(textWithYear, j);
-//				this->middlePrice3 = vec2[vec2.size() - 1];
-//			}
-//			int pos = textWithYear.find(".");
-//			while (pos != string::npos)
-//			{
-//				textWithYear.replace(pos, 1, "");
-//				pos = textWithYear.find(".");
-//			}
-//			int i = 1;
-//			vector<int> vec1 = num_from_string(textWithYear, i);
-//			if (vec1[0] == year) {
-//				this->edition = vec1[1];
-//			}
-//			else{ this->edition = vec1[0]; }
-//		}
-//		catch (...){}
-//	}
-//	else
-//	{
-//
-//		string rowsWithYear = textWithYear.substr(positionYear, textWithYear.length());
-//		string rowWithYear = rowsWithYear.substr(0, rowsWithYear.find("\n"));
-//		try
-//		{
-//			double j = 1;
-//			vector<double> vec2 = num_from_string(rowWithYear, j);
-//			if ((vec2[vec2.size() - 1]) != year)
-//			{
-//				this->middlePrice3 = vec2[vec2.size() - 1];
-//
-//				int pos = rowWithYear.find(".");
-//				while (pos != string::npos)
-//				{
-//					rowWithYear.replace(pos, 1, "");
-//					pos = rowWithYear.find(".");
-//				}
-//
-//				int i = 1;
-//				vector<int> vec1 = num_from_string(rowWithYear, i);
-//				this->edition = vec1[1];
-//			}
-//		}
-//		catch (...){}
-//	}
-//
-//
-//}
+void money::GetPriceEdition()
+{
+	try
+	{
+		string text = vectorCutStringUcoin[2];
+		int positionEdition = text.find("Тираж");
+		int positionPrice = text.find("Цена");
+
+
+		if (positionEdition != string::npos && positionPrice != string::npos)
+		{
+			cout << text << endl << year << endl;
+
+			int positionYear = text.find(to_string(year));
+			std::cout << "->>>" << positionYear << " : " << text.length() << endl;
+
+			string rowsWithYear = text.substr(positionYear, text.length() - positionYear);
+			std::cout << "1--->" << rowsWithYear << endl;
+
+			string rowWithYear = rowsWithYear.substr(0, rowsWithYear.find("\n"));
+			std::cout << "2--->" << rowWithYear << endl;
+
+			double j = 1;
+			vector<double> vec2 = num_from_string(rowWithYear, j);
+			this->middlePrice3 = vec2[vec2.size() - 1];
+
+			int pos = rowWithYear.find(".");
+			while (pos != string::npos)
+			{
+				rowWithYear.replace(pos, 1, "");
+				pos = rowWithYear.find(".");
+			}
+
+			int i = 1;
+			vector<int> vec1 = num_from_string(rowWithYear, i);
+			this->edition = vec1[1];
+		}
+		else if (positionEdition != string::npos && positionPrice == string::npos)
+		{
+			string textCopy = text;
+			int pos = textCopy.find(".");
+			while (pos != string::npos)
+			{
+				textCopy.replace(pos, 1, "");
+				pos = textCopy.find(".");
+			}
+			int i = 1;
+			vector<int> vec1 = num_from_string(textCopy, i);
+			this->edition = vec1[0];
+		}
+		else if (positionEdition == string::npos && positionPrice != string::npos)
+		{
+			int positionToken = text.find(this->token);
+			if (positionToken != string::npos)
+			{
+				string rowsWithToken = text.substr(positionToken, text.length() - positionToken);
+				string rowWithToken = rowsWithToken.substr(0, rowsWithToken.find("\n"));
+				double i = 1.0;
+				vector<double> vec1 = num_from_string(rowWithToken, i);
+				this->middlePrice3 = vec1[0];
+			}
+
+			string textCopy = vectorCutStringUcoin[3];
+			int pos = textCopy.find(".");
+			while (pos != string::npos)
+			{
+				textCopy.replace(pos, 1, "");
+				pos = textCopy.find(".");
+			}
+			int i = 1;
+			vector<int> vec1 = num_from_string(textCopy, i);
+			this->edition = vec1[0];
+		}
+	}
+	catch (exception e) { std::cout << "ОШибка: " << e.what() << endl; }
+	std::cout << std::endl << "Цена: " << this->middlePrice3 << endl;
+	std::cout << "Тираж: " << this->edition << endl;
+}
+
+
 
 void money::GetWeightDiameterThicknessUcoin() {
-	string text = vectorCutStringUcoin[1];
-	int position1 = text.find("Вес");
-	string numText = text.substr(position1, text.length() - position1);
 	try {
+		string text = vectorCutStringUcoin[1];
+		int position1 = text.find("Вес");
+		string numText = text.substr(position1, text.length() - position1);
 		double i = 1.1;
 		vector<double> vec = num_from_string(numText, i);
 		weight = vec[0];
@@ -422,7 +408,7 @@ void money::GetWeightDiameterThicknessUcoin() {
 		thickness = vec[2];
 	}
 	catch (...) {}
-	}
+}
 
 void money::CutStringFromUcoin() {
 	string infoUcoinText = this->infoUcoin;
@@ -434,27 +420,32 @@ void money::CutStringFromUcoin() {
 	}
 	while (infoUcoinText.length() > 0) {
 		vectorCutStringUcoin.push_back(infoUcoinText.substr(0, infoUcoinText.find('№')));
-		infoUcoinText.erase(0, infoUcoinText.find('№')+1);
+		infoUcoinText.erase(0, infoUcoinText.find('№') + 1);
 	}
 }
 
 void money::CutStringAllMoney(vector <money> Vector, int num, int k, string allInformation) {
 	int positionBegin = allInformation.find(Vector[num].name2);
 	if (num < k) {
-		this->infoUcoin = allInformation.substr(positionBegin, allInformation.find(Vector[num+1].name2) - positionBegin);
+		this->infoUcoin = allInformation.substr(positionBegin, allInformation.find(Vector[num + 1].name2) - positionBegin);
 	}
 	else {
 		this->infoUcoin = allInformation.substr(positionBegin, allInformation.length() - positionBegin);
 	}
 };
 
+
+
+
+
 void money::GetInfoFromThreeSite()
 {
 	system("cls");
 	cout << "Money number: " << number << " " << name2 << endl;
-	cout << "Find info from ucoin.ru: " << endl;
+	cout << "Find info from ucoin.ru: ";
 	try {
 		GetWeightDiameterThicknessUcoin();
+		GetPriceEdition();
 		cout << "OK!" << endl;
 	}
 	catch (...) { cout << "Not info" << endl; }
@@ -464,7 +455,7 @@ void money::GetInfoFromThreeSite()
 		ParseUrlMoneyRaritetus();
 		this->htmlRaritetus = GetDataFromSite("https://www.raritetus.ru" + this->urlRaritetus);
 	}
-	catch ( ... ) {}
+	catch (...) {}
 	if (this->htmlRaritetus != "" && this->urlRaritetus != "") {
 		try {
 			this->GetInfoFromRaritetus();
@@ -473,7 +464,7 @@ void money::GetInfoFromThreeSite()
 		catch (...) { cout << "Not info" << endl; }
 
 	}
-	cout << "Find info from coinsmart.ru: " << endl;
+	cout << "Find info from coinsmart.ru: ";
 	try {
 		this->htmlCoinsmart = GetDataFromSite("https://coinsmart.ru/search/?query=" + this->url);
 		ParseUrlMoneyCoinsmart();
@@ -487,13 +478,14 @@ void money::GetInfoFromThreeSite()
 		}
 		catch (...) { cout << "Not info" << endl; }
 	}
+
 }
 
 
 //--------------------------------------------------//
 
 int main() {
-	SetConsoleCP(1251); 
+	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	int k = count_money();
 	cout << "Number of coins: " << k << endl;
@@ -505,17 +497,17 @@ int main() {
 		M.GetMoneyFromExcel();
 		M.name2 = UTF8_to_CP1251(M.name);
 		moneyVector.push_back(M);
-		if (i!=k)
+		if (i != k)
 			allMoney += M.name += '\n';
 		else
 			allMoney += M.name;
 	}
 
-	/*ofstream out;         
-	out.open("money.txt");      
+	ofstream out;
+	out.open("money.txt");
 	out << allMoney;
 	out.close();
-	system("java -jar OldMoneyParser.jar");*/
+	system("java -jar OldMoneyParser.jar");
 
 	ifstream in;
 	in.open("all information.txt");
@@ -534,7 +526,7 @@ int main() {
 			moneyVector[i].GetInfoFromThreeSite();
 			moneyVector[i].PostMoneyIntoExcel();
 		}
-		catch( ... ) {}
+		catch (...) {}
 	}
 
 	return 0;
