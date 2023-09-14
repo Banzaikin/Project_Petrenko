@@ -1,0 +1,1157 @@
+price: UNC
+2006
+35.00  rub.
+UNC
+2006
+35.00  rub.
+UNC
+2006
+43.81  rub.
+UNC
+2006
+44.00  rub.
+UNC
+2006
+45.00  rub.
+UNC
+2006
+48.88  rub.
+UNC
+2006
+48.88  rub.
+UNC
+2006
+48.88  rub.
+UNC
+2006
+48.88  rub.
+
+price: UNC
+2006
+35.00  rub.
+UNC
+2006
+37.00  rub.
+UNC
+2006
+40.00  rub.
+UNC
+2006
+44.04  rub.
+UNC
+2006
+44.04  rub.
+UNC
+2006
+44.04  rub.
+UNC
+2006
+45.00  rub.
+
+price: UNC
+2007 SP
+295.00  rub.
+UNC
+2007 SP
+307.35  rub.
+UNC
+2007 SP
+337.70  rub.
+UNC
+2007 M
+337.70  rub.
+UNC
+2007 M
+340.00  rub.
+UNC
+2007 M
+347.90  rub.
+UNC
+2007 M
+347.90  rub.
+UNC
+2007 M
+349.00  rub.
+UNC
+2007 M
+350.00  rub.
+
+price: UNC
+2001
+1.02  rub.
+UNC
+2000
+1.02  rub.
+UNC
+2003
+2.04  rub.
+UNC
+1999
+2.04  rub.
+UNC
+2003
+2.04  rub.
+UNC
+2007
+2.04  rub.
+UNC
+2005
+2.04  rub.
+UNC
+2001
+3.06  rub.
+
+price: UNC
+2015
+UNC
+2014
+UNC
+2019
+UNC
+2019
+51.06  rub.
+UNC
+2017
+55.00  rub.
+UNC
+2018
+55.00  rub.
+UNC
+2019
+70.00  rub.
+UNC
+2017
+UNC
+2019
+70.00  rub.
+UNC
+2017
+80.00  rub.
+UNC
+2019
+UNC
+2019
+90.00  rub.
+UNC
+2019
+UNC
+2019
+UNC
+2018
+UNC
+2018
+101.11  rub.
+UNC
+2019
+101.11  rub.
+UNC
+2018
+101.11  rub.
+UNC
+2018
+101.11  rub.
+UNC
+2018
+UNC
+2018
+UNC
+2018
+101.11  rub.
+UNC
+2019
+UNC
+2018
+101.11  rub.
+UNC
+2018
+101.11  rub.
+UNC
+2018
+101.11  rub.
+UNC
+2018
+101.11  rub.
+UNC
+2018
+101.11  rub.
+UNC
+2017
+102.13  rub.
+UNC
+2019
+102.13  rub.
+UNC
+2017
+102.13  rub.
+UNC
+2017
+102.13  rub.
+UNC
+2017
+102.13  rub.
+UNC
+2019
+102.13  rub.
+UNC
+2017
+UNC
+2019
+UNC
+2018
+120.00  rub.
+UNC
+2019
+122.55  rub.
+UNC
+2019
+126.64  rub.
+UNC
+2019
+126.64  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+UNC
+2019
+127.62  rub.
+UNC
+2019
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+127.62  rub.
+UNC
+2019
+UNC
+2019
+127.66  rub.
+UNC
+2022
+127.66  rub.
+UNC
+2019
+127.66  rub.
+UNC
+2019
+127.66  rub.
+UNC
+2019
+127.66  rub.
+UNC
+2017
+130.00  rub.
+UNC
+2017
+130.00  rub.
+UNC
+2018
+132.06  rub.
+
+price: UNC
+2022
+1.02  rub.
+UNC
+2018
+5.11  rub.
+UNC
+2022
+5.11  rub.
+UNC
+2011
+9.07  rub.
+UNC
+2011
+10.00  rub.
+UNC
+2011
+10.21  rub.
+UNC
+2011
+10.21  rub.
+UNC
+2018
+10.21  rub.
+UNC
+2011
+10.21  rub.
+
+price: UNC
+2002 F
+2.04  rub.
+UNC
+2006 D
+5.11  rub.
+UNC
+2002 G
+5.11  rub.
+UNC
+2013 A
+5.11  rub.
+UNC
+2018 F
+5.11  rub.
+UNC
+2002 A
+5.11  rub.
+UNC
+2004 D
+5.11  rub.
+UNC
+2012 G
+5.11  rub.
+UNC
+2002 F
+5.11  rub.
+
+price: UNC
+2016
+5.11  rub.
+UNC
+2017
+5.11  rub.
+UNC
+2017
+5.11  rub.
+UNC
+2018
+5.11  rub.
+UNC
+2018
+5.11  rub.
+UNC
+2017
+5.11  rub.
+UNC
+2010
+5.11  rub.
+UNC
+2016
+5.11  rub.
+UNC
+2018
+5.11  rub.
+
+price: UNC
+2009
+10.21  rub.
+UNC
+2009
+10.21  rub.
+UNC
+2009
+10.21  rub.
+UNC
+2009
+10.21  rub.
+UNC
+2009
+10.21  rub.
+UNC
+2009
+10.21  rub.
+UNC
+2009
+10.21  rub.
+UNC
+2009
+15.32  rub.
+UNC
+2009
+18.38  rub.
+
+price: UNC
+2003 A
+10.21  rub.
+UNC
+2003 J
+10.21  rub.
+UNC
+2003 A
+10.21  rub.
+UNC
+2002
+10.21  rub.
+UNC
+2002 F
+10.21  rub.
+UNC
+2003 J
+10.21  rub.
+UNC
+2002 F
+10.21  rub.
+UNC
+2003 A
+10.21  rub.
+UNC
+2003 D
+10.21  rub.
+
+price: UNC
+1999
+25.53  rub.
+UNC
+2001
+25.53  rub.
+UNC
+1999
+25.53  rub.
+UNC
+2001
+51.06  rub.
+UNC
+2001
+51.06  rub.
+UNC
+1999
+51.06  rub.
+UNC
+2001
+64.55  rub.
+UNC
+1999
+68.49  rub.
+UNC
+2001
+75.00  rub.
+
+price: UNC
+1962
+89.67  rub.
+UNC
+1957
+124.60  rub.
+UNC
+1963
+220.00  rub.
+XF
+1956
+105.00  rub.
+XF
+1956
+109.28  rub.
+XF
+1964
+122.55  rub.
+XF
+1964
+122.55  rub.
+XF
+1957
+129.00  rub.
+XF
+1963
+136.79  rub.
+
+price: UNC
+1970
+200.00  rub.
+UNC
+1970
+200.00  rub.
+UNC
+1970
+250.00  rub.
+XF
+1970
+386.54  rub.
+VF
+1970
+257.69  rub.
+
+price: UNC
+1976
+15.00  rub.
+UNC
+1976
+25.00  rub.
+UNC
+1976
+30.00  rub.
+UNC
+1976
+30.33  rub.
+UNC
+1976
+30.64  rub.
+UNC
+1976
+30.64  rub.
+UNC
+1976
+30.64  rub.
+UNC
+1976
+35.00  rub.
+UNC
+1976
+38.65  rub.
+
+price: UNC
+1970
+104.17  rub.
+UNC
+1975
+150.00  rub.
+UNC
+1975
+150.00  rub.
+UNC
+1970
+150.00  rub.
+UNC
+1972
+150.00  rub.
+UNC
+1975
+165.00  rub.
+UNC
+1971
+180.00  rub.
+UNC
+1970
+255.32  rub.
+UNC
+1975
+255.32  rub.
+
+price: UNC
+1963
+267.00  rub.
+UNC
+1962
+277.00  rub.
+UNC
+1958
+304.34  rub.
+UNC
+1958
+304.34  rub.
+UNC
+1958
+330.14  rub.
+UNC
+1957
+510.64  rub.
+XF
+1957
+204.26  rub.
+XF
+1963
+204.96  rub.
+XF
+1962
+229.79  rub.
+
+price: UNC
+2005
+15.32  rub.
+XF
+2005
+14.30  rub.
+XF
+2005
+15.32  rub.
+XF
+2005
+15.32  rub.
+XF
+2005
+15.32  rub.
+XF
+2005
+15.32  rub.
+XF
+2005
+15.32  rub.
+XF
+2005
+15.32  rub.
+XF
+2005
+15.32  rub.
+
+price: UNC
+1997
+22.47  rub.
+UNC
+1996
+25.53  rub.
+UNC
+1998
+27.57  rub.
+UNC
+1998
+27.57  rub.
+UNC
+1998
+27.57  rub.
+UNC
+2000
+28.60  rub.
+UNC
+1997
+40.00  rub.
+UNC
+1997
+40.00  rub.
+UNC
+1997
+49.00  rub.
+
+price: UNC
+1999
+41.87  rub.
+UNC
+1997
+44.02  rub.
+UNC
+1996
+49.43  rub.
+UNC
+1998
+68.44  rub.
+UNC
+1999
+70.00  rub.
+XF
+1996
+10.00  rub.
+XF
+1997
+10.21  rub.
+XF
+1996
+10.21  rub.
+XF
+1996
+11.00  rub.
+
+price: UNC
+1939
+62.30  rub.
+XF
+1939
+30.00  rub.
+XF
+1940
+31.00  rub.
+XF
+1938
+39.86  rub.
+XF
+1939
+40.00  rub.
+XF
+1940
+41.87  rub.
+XF
+1940
+41.87  rub.
+XF
+1940
+41.87  rub.
+XF
+1940
+41.87  rub.
+
+price: UNC
+1941
+60.00  rub.
+XF
+1942
+19.00  rub.
+XF
+1941
+19.00  rub.
+XF
+1942
+20.00  rub.
+XF
+1941
+22.00  rub.
+XF
+1941
+29.00  rub.
+XF
+1941
+30.00  rub.
+XF
+1942
+30.00  rub.
+XF
+1941
+30.00  rub.
+
+price: XF
+1938
+48.00  rub.
+XF
+1935
+48.00  rub.
+XF
+1938
+50.00  rub.
+XF
+1935
+59.00  rub.
+XF
+1936
+60.00  rub.
+XF
+1936
+61.71  rub.
+XF
+1937
+70.00  rub.
+XF
+1938
+73.53  rub.
+
+price: XF
+1938
+48.00  rub.
+XF
+1935
+48.00  rub.
+XF
+1938
+50.00  rub.
+XF
+1935
+59.00  rub.
+XF
+1936
+60.00  rub.
+XF
+1936
+61.71  rub.
+XF
+1937
+70.00  rub.
+XF
+1938
+73.53  rub.
+
+price: UNC
+1922
+69.74  rub.
+UNC
+1922
+612.77  rub.
+XF
+1921
+60.00  rub.
+XF
+1922
+60.00  rub.
+XF
+1919
+60.00  rub.
+XF
+1924
+75.00  rub.
+XF
+1923
+85.00  rub.
+XF
+1919
+85.00  rub.
+XF
+1923
+90.00  rub.
+
+price: XF
+1940
+33.00  rub.
+XF
+1941
+34.00  rub.
+XF
+1941
+35.00  rub.
+XF
+1941
+46.38  rub.
+XF
+1942
+46.98  rub.
+XF
+1942
+46.98  rub.
+XF
+1941
+46.98  rub.
+XF
+1942
+46.98  rub.
+XF
+1942
+46.98  rub.
+
+price: XF
+1944
+49.00  rub.
+XF
+1944
+67.40  rub.
+XF
+1944
+67.40  rub.
+VF
+1944
+43.00  rub.
+VF
+1944
+60.00  rub.
+VF
+1944
+67.40  rub.
+VF
+1944
+67.40  rub.
+VF
+1944
+67.40  rub.
+VF
+1944
+67.40  rub.
+
+price: XF
+1946
+41.00  rub.
+XF
+1946
+46.11  rub.
+VF
+1946
+30.00  rub.
+VF
+1946
+32.00  rub.
+VF
+1945
+45.66  rub.
+VF
+1945
+45.66  rub.
+VF
+1945
+45.66  rub.
+VF
+1945
+45.66  rub.
+VF
+1945
+45.66  rub.
+
+price: UNC
+1944
+100.00  rub.
+UNC
+1944
+102.13  rub.
+XF
+1944
+19.00  rub.
+XF
+1944
+37.84  rub.
+XF
+1944
+40.00  rub.
+XF
+1944
+40.00  rub.
+XF
+1944
+41.96  rub.
+XF
+1944
+41.96  rub.
+XF
+1944
+41.96  rub.
+
+price: XF
+1941
+35.00  rub.
+XF
+1940
+40.00  rub.
+XF
+1942
+40.00  rub.
+XF
+1940
+40.00  rub.
+XF
+1940
+45.00  rub.
+XF
+1942
+47.00  rub.
+XF
+1940
+49.02  rub.
+XF
+1940
+49.02  rub.
+XF
+1940
+49.02  rub.
+
+price: UNC
+1922
+69.74  rub.
+UNC
+1922
+612.77  rub.
+XF
+1921
+60.00  rub.
+XF
+1922
+60.00  rub.
+XF
+1919
+60.00  rub.
+XF
+1924
+75.00  rub.
+XF
+1923
+85.00  rub.
+XF
+1919
+85.00  rub.
+XF
+1923
+90.00  rub.
+
+price: UNC
+1946
+60.00  rub.
+UNC
+1946
+68.43  rub.
+XF
+1946
+40.00  rub.
+XF
+1945
+44.00  rub.
+XF
+1946
+50.00  rub.
+XF
+1946
+56.00  rub.
+XF
+1945
+56.20  rub.
+XF
+1945
+56.20  rub.
+XF
+1945
+56.20  rub.
+
+price: UNC
+1946
+60.00  rub.
+UNC
+1946
+68.43  rub.
+XF
+1946
+40.00  rub.
+XF
+1945
+44.00  rub.
+XF
+1946
+50.00  rub.
+XF
+1946
+56.00  rub.
+XF
+1945
+56.20  rub.
+XF
+1945
+56.20  rub.
+XF
+1945
+56.20  rub.
+
+price: UNC
+1948
+50.00  rub.
+UNC
+1948
+50.00  rub.
+UNC
+1948
+57.19  rub.
+UNC
+1948
+69.74  rub.
+XF
+1948
+24.00  rub.
+XF
+1948
+27.04  rub.
+XF
+1948
+32.00  rub.
+XF
+1948
+34.00  rub.
+XF
+1947
+35.00  rub.
+
+price: XF
+1946
+60.00  rub.
+XF
+1946
+73.00  rub.
+XF
+1946
+75.00  rub.
+XF
+1946
+88.79  rub.
+XF
+1946
+88.79  rub.
+XF
+1946
+88.79  rub.
+XF
+1946
+88.79  rub.
+XF
+1946
+88.79  rub.
+
+price: UNC
+1949
+85.00  rub.
+XF
+1949
+35.00  rub.
+XF
+1950
+37.87  rub.
+XF
+1949
+40.00  rub.
+XF
+1949
+40.00  rub.
+XF
+1949
+40.00  rub.
+XF
+1948
+45.02  rub.
+XF
+1948
+45.02  rub.
