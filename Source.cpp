@@ -337,16 +337,11 @@ void money::GetPriceEdition()
 
 		if (positionEdition != string::npos && positionPrice != string::npos)
 		{
-			cout << text << endl << year << endl;
-
 			int positionYear = text.find(to_string(year));
 			
-
 			string rowsWithYear = text.substr(positionYear, text.length() - positionYear);
 
-
 			string rowWithYear = rowsWithYear.substr(0, rowsWithYear.find("\n"));
-
 
 			double j = 1;
 			vector<double> vec2 = num_from_string(rowWithYear, j);
@@ -532,16 +527,16 @@ void money::CutStringAllMoney(vector <money> Vector, int num, int k, string allI
 void money::GetInfoFromThreeSite()
 {
 	system("cls");
-	cout << "Money number: " << number << " " << name2 << endl;
-	cout << "Find info from ucoin.ru: ";
+	cout << "Номер монеты: " << number << " " << name2 << endl;
+	cout << "Поиск информации ucoin.ru: ";
 	try {
 		GetWeightDiameterThicknessUcoin();
 		GetPriceEdition();
 		GetPriceUcoin();
 		cout << "OK!" << endl;
 	}
-	catch (...) { cout << "Not info" << endl; }
-	cout << "Find info from raritetus.ru: ";
+	catch (...) { cout << "Нет информации" << endl; }
+	cout << "Поиск информации raritetus.ru: ";
 	try {
 		this->htmlRaritetus = GetDataFromSite("https://www.raritetus.ru/search/catalog/?par=" + this->url);
 		ParseUrlMoneyRaritetus();
@@ -553,10 +548,10 @@ void money::GetInfoFromThreeSite()
 			this->GetInfoFromRaritetus();
 			cout << "OK!" << endl;
 		}
-		catch (...) { cout << "Not info" << endl; }
+		catch (...) { cout << "Нет информации" << endl; }
 
 	}
-	cout << "Find info from coinsmart.ru: ";
+	cout << "Поиск информации coinsmart.ru: ";
 	try {
 		this->htmlCoinsmart = GetDataFromSite("https://coinsmart.ru/search/?query=" + this->url);
 		ParseUrlMoneyCoinsmart();
@@ -568,7 +563,7 @@ void money::GetInfoFromThreeSite()
 			this->GetInfoFromCoinsmart();
 			cout << "OK!" << endl;
 		}
-		catch (...) { cout << "Not info" << endl; }
+		catch (...) { cout << "Нет информации" << endl; }
 	}
 
 }
@@ -580,7 +575,7 @@ int main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	int k = count_money();
-	cout << "Number of coins: " << k << endl;
+	cout << "Количество монет в файле: " << k << endl;
 	string allInformation;
 	string allMoney;
 	vector <money> moneyVector;
