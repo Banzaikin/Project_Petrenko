@@ -37,8 +37,11 @@ public:
 	double priceTraidUNCMin = 0;
 	double priceTraidCondMax = 0;
 	double priceTraidCondMin = 0;
+<<<<<<< HEAD
 	string material = "";
 	string coin_edge = "";
+=======
+>>>>>>> 41645ce92d0a0875f3a9a2899d29354f3036c8e6
 public:
 	string url;
 	string urlRaritetus;
@@ -62,7 +65,10 @@ public:
 	void GetInfoFromThreeSite();
 	void CutStringFromUcoin();
 	void GetPriceUcoin();
+<<<<<<< HEAD
 	void GetMaterialUcoin();
+=======
+>>>>>>> 41645ce92d0a0875f3a9a2899d29354f3036c8e6
 };
 size_t write_data(void* ptr, size_t size, size_t nmemb, std::string* data) {
 	data->append((char*)ptr, size * nmemb);
@@ -185,9 +191,12 @@ void money::PostMoneyIntoExcel()
 	wks.cell("N" + num).value() = diametr;
 	wks.cell("L" + num).value() = edition;
 	wks.cell("M" + num).value() = thickness;
+<<<<<<< HEAD
 
 	//wks.cell("AA" + num).value() = material;
 	//wks.cell("AB" + num).value() = coin_edge;
+=======
+>>>>>>> 41645ce92d0a0875f3a9a2899d29354f3036c8e6
 
 	doc.save();
 	doc.close();
@@ -344,7 +353,11 @@ void money::GetPriceEdition()
 		if (positionEdition != string::npos && positionPrice != string::npos)
 		{
 			int positionYear = text.find(to_string(year));
+<<<<<<< HEAD
 
+=======
+			
+>>>>>>> 41645ce92d0a0875f3a9a2899d29354f3036c8e6
 			string rowsWithYear = text.substr(positionYear, text.length() - positionYear);
 
 			string rowWithYear = rowsWithYear.substr(0, rowsWithYear.find("\n"));
@@ -487,6 +500,7 @@ void money::GetPriceUcoin()
 	}
 }
 
+<<<<<<< HEAD
 //функция для поиска материала и гурта
 void money::GetMaterialUcoin() {
 	try {
@@ -504,6 +518,8 @@ void money::GetMaterialUcoin() {
 		coin_edge = "-";
 	}
 }
+=======
+>>>>>>> 41645ce92d0a0875f3a9a2899d29354f3036c8e6
 
 void money::GetWeightDiameterThicknessUcoin() {
 	try {
@@ -556,9 +572,12 @@ void money::GetInfoFromThreeSite()
 		GetWeightDiameterThicknessUcoin();
 		GetPriceEdition();
 		GetPriceUcoin();
+<<<<<<< HEAD
 		GetMaterialUcoin();
 		cout << endl << "material: " << material;
 		cout << "coin_edge: " << coin_edge << endl << endl;
+=======
+>>>>>>> 41645ce92d0a0875f3a9a2899d29354f3036c8e6
 		cout << "OK!" << endl;
 	}
 	catch (...) { cout << "Нет информации" << endl; }
@@ -598,10 +617,15 @@ void money::GetInfoFromThreeSite()
 //--------------------------------------------------//
 
 int main() {
+<<<<<<< HEAD
 	setlocale(LC_ALL, "");
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
+=======
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+>>>>>>> 41645ce92d0a0875f3a9a2899d29354f3036c8e6
 	int k = count_money();
 	cout << "Количество монет в файле: " << k << endl;
 	string allInformation;
